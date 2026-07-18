@@ -7,7 +7,10 @@ TARGETS = [
     ("gakugei_info", "https://www.gakugei-hs.setagaya.tokyo.jp/exam/info/"),
     ("gakugei_session", "https://www.gakugei-hs.setagaya.tokyo.jp/exam/infosession2022s/"),
     ("chuo-yokohama", "https://www.yokohama-js.chuo-u.ac.jp/admission/senior/"),
+    ("hosei2", "https://www.hosei2.ed.jp/admission/event/exp_hs"),
     ("yamate", "https://www.yamate-gakuin.ac.jp/examinee/h_boshu/"),
+    ("toin", "https://toin.ac.jp/high/exam/guideline/"),
+    ("hoyu", "https://www.ho-yu.ed.jp/examinee/"),
 ]
 
 SCHOOL_NAMES = {
@@ -16,7 +19,10 @@ SCHOOL_NAMES = {
     "gakugei_info": "東京学芸大学附属高校（入試情報ページ）",
     "gakugei_session": "東京学芸大学附属高校（学校説明会ページ）",
     "chuo-yokohama": "中央大学附属横浜高校",
+    "hosei2": "法政大学第二高校",
     "yamate": "山手学院高校",
+    "toin": "桐蔭学園高校",
+    "hoyu": "朋優学院高校",
 }
 
 STATE_PATH = "state.json"
@@ -119,7 +125,7 @@ def main():
 
 # あなたのタスク
 1. ダッシュボードHTMLを更新してください。学校ごとに `<!-- SCHOOL:xxx --> ... <!-- /SCHOOL -->` で区切られたカードがあります。変化があった学校のカード内で新しい内容を反映するようテーブルの行やdivの文言を書き換え、変わった箇所には `updated`（divの場合 class="row updated"）または `updated-row`（trの場合 class="updated-row"）を追加してください。他の学校カードに残っている古いハイライトは通常のクラスに戻してください。該当する `<ul id="log-XXX">` の先頭に `<li>YYYY/MM/DD HH:MM 内容の要約</li>` を追加し最新5件までに保ってください。`<div id="last-checked">` も更新してください。
-2. ICSファイルを更新してください。変化があった学校の接頭辞（suiran-, kawawa-, gakugei-, chuoyoko-, yamate-）を持つVEVENTのうち該当する行事のDTSTART/DTEND/SUMMARY/LOCATION/DESCRIPTIONを更新し、DTSTAMPを現在時刻に更新してください。新しい行事があれば命名規則に沿った新UIDで追加してください。共通選抜の公式日程（kanagawa2027-で始まるUID）は変更しないでください。
+2. ICSファイルを更新してください。変化があった学校の接頭辞（suiran-, kawawa-, gakugei-, chuoyoko-, hosei2-, yamate-, toin-, hoyu-）を持つVEVENTのうち該当する行事のDTSTART/DTEND/SUMMARY/LOCATION/DESCRIPTIONを更新し、DTSTAMPを現在時刻に更新してください。新しい行事があれば命名規則に沿った新UIDで追加してください（例: hoyu-setsumeikai-1010@kajiwara-family）。共通選抜の公式日程（kanagawa2027-で始まるUID）は変更しないでください。
 3. 短い日本語の通知メッセージを作成してください。学校ごとに「【更新あり】学校名 — 内容の要約」の形式で1〜2行、全体で5行以内にまとめてください。
 
 # 出力形式（厳守。前置きや説明文は一切書かないこと）

@@ -10,6 +10,7 @@
     --green:#059669; --green-bg:#ecfdf5;
     --highlight:#fef3c7; --highlight-border:#f59e0b;
     --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+    --hensachi-bg:#111827; --hensachi-fg:#ffffff;
   }
   *{box-sizing:border-box;}
   body{
@@ -36,12 +37,14 @@
   .card-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
   .school-name{font-size:17px;font-weight:700;margin:0;}
   .school-name a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted);}
+  .badges{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
   .badge{
     font-size:11px;padding:2px 8px;border-radius:999px;font-weight:600;white-space:nowrap;
   }
   .badge.public{color:var(--blue);background:var(--blue-bg);}
   .badge.private{color:var(--purple);background:var(--purple-bg);}
   .badge.national{color:var(--green);background:var(--green-bg);}
+  .badge.hensachi{color:var(--hensachi-fg);background:var(--hensachi-bg);}
   .section-title{font-size:12px;color:var(--muted);font-weight:600;margin:14px 0 4px;text-transform:uppercase;letter-spacing:.03em;}
   .row{font-size:14px;line-height:1.6;margin:2px 0;}
   .row .label{color:var(--muted);margin-right:6px;}
@@ -72,7 +75,7 @@
 
   <header>
     <h1>志望校 入試情報ダッシュボード</h1>
-    <div class="meta" id="last-checked">最終チェック：2026年7月18日（各校の説明会詳細ページを反映）　｜　自動チェック：毎日 8:00 / 13:00 / 20:00</div>
+    <div class="meta" id="last-checked">最終チェック：2026年7月20日（法政大学第二・桐蔭学園・朋優学院を追加、偏差値を反映、表示順を変更）　｜　自動チェック：毎日 6:00 / 9:00 / 12:00 / 16:00 / 20:00</div>
     <div class="legend">
       <span><span class="swatch hl"></span>直近のチェックで内容が変わった箇所</span>
     </div>
@@ -84,7 +87,10 @@
     <div class="card" data-school="横浜翠嵐高校">
       <div class="card-head">
         <h2 class="school-name"><a href="https://www.pen-kanagawa.ed.jp/yokohamasuiran-h/zennichi/nyugaku/r8_setsumeikai.html" target="_blank">横浜翠嵐高校</a></h2>
-        <span class="badge public">県立・全日制</span>
+        <div class="badges">
+          <span class="badge public">県立・全日制</span>
+          <span class="badge hensachi">偏差値 74</span>
+        </div>
       </div>
       <div class="section-title">入試の概要</div>
       <div class="row">神奈川県共通選抜。内申点＋学力検査（5教科）＋特色検査の総合選考。2026年度 最終志願倍率 2.05倍（県内公立トップ）。</div>
@@ -114,14 +120,17 @@
     <div class="card" data-school="川和高校">
       <div class="card-head">
         <h2 class="school-name"><a href="https://www.pen-kanagawa.ed.jp/kawawa-h/nyugaku/20260-kakkousetumeikai-itiran.html" target="_blank">川和高校</a></h2>
-        <span class="badge public">県立・全日制</span>
+        <div class="badges">
+          <span class="badge public">県立・全日制</span>
+          <span class="badge hensachi">偏差値 69</span>
+        </div>
       </div>
       <div class="section-title">入試の概要</div>
       <div class="row">神奈川県共通選抜。第一次選考は内申4：学力6：特色1、第二次選考は内申3：学力7：特色1の比率。</div>
       <div class="row"><span class="label">出願期間</span>2027/1/25〜1/29　<span class="label">学力検査</span>2027/2/16　<span class="label">合格発表</span>2027/2/26</div>
 
       <div class="section-title">学校説明会・行事（令和8年度、更新日 2026/6/8）</div>
-      <div class="row updated">今年度は対面説明会を実施せず、動画配信（オンライン）形式に変更。視聴期間は7月下旬〜年度末、申込は電子申請システムで7月下旬開始予定。</div>
+      <div class="row">今年度は対面説明会を実施せず、動画配信（オンライン）形式に変更。視聴期間は7月下旬〜年度末、申込は電子申請システムで7月下旬開始予定。</div>
       <table class="events">
         <tr><th>行事</th><th>日時</th><th>会場</th><th>申込</th></tr>
         <tr><td>全公立展</td><td>6/13(土) 10:00〜15:30</td><td>パシフィコ横浜</td><td>事前申込制</td></tr>
@@ -146,7 +155,10 @@
     <div class="card" data-school="東京学芸大学附属高校">
       <div class="card-head">
         <h2 class="school-name"><a href="https://www.gakugei-hs.setagaya.tokyo.jp/exam/info/" target="_blank">東京学芸大学附属高校</a></h2>
-        <span class="badge national">国立</span>
+        <div class="badges">
+          <span class="badge national">国立</span>
+          <span class="badge hensachi">偏差値 75</span>
+        </div>
       </div>
       <div class="section-title">入試の概要</div>
       <div class="row">一般入試（5教科重視）と帰国生入試（3教科）の2区分。「令和9年度 生徒募集に関する公示」が令和8年7月6日付で更新済み（詳細PDFは公式サイト参照）。</div>
@@ -155,7 +167,7 @@
       <table class="events">
         <tr><th>行事</th><th>日時</th><th>備考</th></tr>
         <tr><td>授業公開</td><td>5/9(土)</td><td>終了</td></tr>
-        <tr><td class="updated">学校説明会</td><td class="updated">7/24(金)</td><td class="updated">6月中旬に申込開始（要事前申込・詳細は公式サイト参照）</td></tr>
+        <tr><td>学校説明会</td><td>7/24(金)</td><td>午前9:30〜12:00・午後13:30〜16:00の2部制。申込開始6/19(金)15:00、定員700名</td></tr>
         <tr><td>学校説明会</td><td>10/3(土)・10/4(日)</td><td>要確認</td></tr>
         <tr><td>授業公開</td><td>翌2/20(土)</td><td>要確認</td></tr>
       </table>
@@ -172,7 +184,10 @@
     <div class="card" data-school="中央大学附属横浜高校">
       <div class="card-head">
         <h2 class="school-name"><a href="https://www.yokohama-js.chuo-u.ac.jp/admission/senior/" target="_blank">中央大学附属横浜高校</a></h2>
-        <span class="badge private">私立</span>
+        <div class="badges">
+          <span class="badge private">私立</span>
+          <span class="badge hensachi">偏差値 66</span>
+        </div>
       </div>
       <div class="section-title">入試の概要（推薦／一般A／一般B）</div>
       <div class="row"><span class="label">推薦</span>出願1/14〜1/16、試験1/22、発表1/22</div>
@@ -202,11 +217,45 @@
     </div>
     <!-- /SCHOOL -->
 
+    <!-- SCHOOL:hosei2 -->
+    <div class="card" data-school="法政大学第二高校">
+      <div class="card-head">
+        <h2 class="school-name"><a href="https://www.hosei2.ed.jp/admission/event/exp_hs" target="_blank">法政大学第二高校</a></h2>
+        <div class="badges">
+          <span class="badge private">私立</span>
+          <span class="badge hensachi">偏差値 69</span>
+        </div>
+      </div>
+      <div class="section-title">入試の概要</div>
+      <div class="row">法政大学の附属校。入試要項の詳細は公式サイトでご確認ください。</div>
+
+      <div class="section-title">学校説明会・行事（2026年度実施予定）</div>
+      <table class="events">
+        <tr><th>行事</th><th>日時</th><th>定員</th><th>予約受付期間</th></tr>
+        <tr><td>第1回学校説明会</td><td>9/19(土) 14:30〜</td><td>1300名</td><td>9/9(水)10:00〜9/18(金)16:00</td></tr>
+        <tr><td>第2回学校説明会</td><td>10/10(土) 14:30〜</td><td>1300名</td><td>9/30(水)10:00〜10/9(金)16:00</td></tr>
+        <tr><td>第3回学校説明会</td><td>11/7(土) 14:30〜</td><td>1300名</td><td>10/28(水)10:00〜11/6(金)16:00</td></tr>
+        <tr><td>第4回学校説明会</td><td>11/28(土) 14:30〜</td><td>1300名</td><td>11/18(水)10:00〜11/27(金)16:00</td></tr>
+        <tr><td>帰国生向け学校説明会</td><td>8/22(土) 10:00〜</td><td>100名</td><td>8/1(土)10:00〜8/21(金)16:00</td></tr>
+        <tr><td>学校公開</td><td>9/26(土) 10:30〜14:00</td><td>1300名(予定)</td><td>8/29(土)10:00〜9/19(土)16:00</td></tr>
+      </table>
+      <div class="note">説明会は学校説明・入試説明・個別相談・施設見学を実施（全回とも同一内容）。定員超過の場合は先着順。</div>
+
+      <div class="changelog">
+        <div class="section-title">更新履歴</div>
+        <ul id="log-hosei2"><li class="empty">まだ更新は検知されていません（初回登録）</li></ul>
+      </div>
+    </div>
+    <!-- /SCHOOL -->
+
     <!-- SCHOOL:yamate -->
     <div class="card" data-school="山手学院高校">
       <div class="card-head">
         <h2 class="school-name"><a href="https://www.yamate-gakuin.ac.jp/examinee/h_boshu/" target="_blank">山手学院高校</a></h2>
-        <span class="badge private">私立</span>
+        <div class="badges">
+          <span class="badge private">私立</span>
+          <span class="badge hensachi">偏差値 70</span>
+        </div>
       </div>
       <div class="section-title">入試の概要</div>
       <div class="row">併願入試・オープン入試（各2日程）。試験科目は国語・英語・数学の3教科。</div>
@@ -229,10 +278,66 @@
     </div>
     <!-- /SCHOOL -->
 
+    <!-- SCHOOL:toin -->
+    <div class="card" data-school="桐蔭学園高校">
+      <div class="card-head">
+        <h2 class="school-name"><a href="https://toin.ac.jp/high/exam/guideline/" target="_blank">桐蔭学園高校</a></h2>
+        <div class="badges">
+          <span class="badge private">私立</span>
+          <span class="badge hensachi">偏差値 68</span>
+        </div>
+      </div>
+      <div class="section-title">入試の概要</div>
+      <div class="row">2027年度入試日程はPDF資料（入試概要ページ内）で公開されています。詳細は公式サイトでご確認ください。</div>
+
+      <div class="section-title">学校説明会・行事</div>
+      <table class="events">
+        <tr><th>行事</th><th>日時</th><th>会場</th><th>申込</th></tr>
+        <tr><td>鵬翔祭（学園祭）</td><td>9/19(土)・20(日) 9:00〜15:00</td><td>本校</td><td>不要</td></tr>
+        <tr><td>校内の学校説明会</td><td>現時点で日程未公開</td><td>本校</td><td>決まり次第、公式予約サイトで案内予定</td></tr>
+      </table>
+      <div class="note">学校説明会の予約は外部システム（mirai-compass）で受け付け。日程公開のタイミングで随時チェックします。</div>
+
+      <div class="changelog">
+        <div class="section-title">更新履歴</div>
+        <ul id="log-toin"><li class="empty">まだ更新は検知されていません（初回登録）</li></ul>
+      </div>
+    </div>
+    <!-- /SCHOOL -->
+
+    <!-- SCHOOL:hoyu -->
+    <div class="card" data-school="朋優学院高校">
+      <div class="card-head">
+        <h2 class="school-name"><a href="https://www.ho-yu.ed.jp/examinee/" target="_blank">朋優学院高校</a></h2>
+        <div class="badges">
+          <span class="badge private">私立</span>
+          <span class="badge hensachi">偏差値 67</span>
+        </div>
+      </div>
+      <div class="section-title">入試の概要</div>
+      <div class="row">国公立TGコース（偏差値67）／国公立コース／特進コースの3コース制。生徒募集要項（2027年度版）を2026/7/9に公開。</div>
+
+      <div class="section-title">学校説明会・行事</div>
+      <table class="events">
+        <tr><th>行事</th><th>形式</th><th>備考</th></tr>
+        <tr><td>オンライン説明会</td><td>予約不要</td><td>朋優学院を知るための第一歩として随時視聴可能</td></tr>
+        <tr><td>外部合同説明会</td><td>要確認</td><td>入試担当者に質問できる合同説明会。詳細は公式サイト参照</td></tr>
+        <tr><td>オープンスクール（授業見学）</td><td>完全予約制・時間制</td><td>中3生のみ受付。保護者と中3生の2名で参加</td></tr>
+        <tr><td>虹色祭（文化祭）</td><td>要確認</td><td>詳細は決まり次第更新</td></tr>
+      </table>
+      <div class="note">説明会関連は外部サイト（オンライン説明会・オープンスクール）で運用。詳細日程が公式サイトに掲載され次第反映します。</div>
+
+      <div class="changelog">
+        <div class="section-title">更新履歴</div>
+        <ul id="log-hoyu"><li class="empty">まだ更新は検知されていません（初回登録）</li></ul>
+      </div>
+    </div>
+    <!-- /SCHOOL -->
+
   </div>
 
   <footer>
-    このページは志望校監視タスクにより自動更新されます。正式な情報は必ず各校公式サイトでご確認ください。
+    このページは志望校監視タスクにより自動更新されます。正式な情報は必ず各校公式サイトでご確認ください。偏差値は複数コースがある場合、最も高いコースの数値を掲載しています（模試運営会社提供のデータを参考値として掲載）。
   </footer>
 
 </div>
