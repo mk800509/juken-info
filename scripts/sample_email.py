@@ -15,6 +15,7 @@ SAMPLE_SUMMARY = (
     "【更新あり】山手学院高校 — 11月開催の学校説明会（要予約）の申込開始が"
     "10/1(木) 10:00からに決定しました。ダッシュボードとカレンダーに反映済みです。"
 )
+SAMPLE_SOURCE_LINES = "・山手学院高校: https://www.yamate-gakuin.ac.jp/examinee/h_boshu/"
 
 
 def main():
@@ -42,6 +43,7 @@ def main():
     subject = f"【志望校情報 更新／サンプル】{SAMPLE_CHANGED_SCHOOLS}"
     body = (
         f"{SAMPLE_SUMMARY}\n\n"
+        f"更新元ページ:\n{SAMPLE_SOURCE_LINES}\n\n"
         f"ダッシュボード: {DASHBOARD_URL}\n"
         f"カレンダー: {DASHBOARD_URL}events.ics\n\n"
         f"※これは実際の更新通知メールと同じ形式のサンプルです。実データではありません。"

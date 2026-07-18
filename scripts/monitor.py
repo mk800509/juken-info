@@ -245,7 +245,16 @@ def main():
         with open(NOTIFY_PATH, "w", encoding="utf-8") as f:
             f.write(summary)
         subject = f"【志望校情報 更新】{changed_schools}"
-        body = f"{summary}\n\nダッシュボード: {DASHBOARD_URL}\nカレンダー: {DASHBOARD_URL}events.ics"
+        url_map = dict(TARGETS)
+        source_lines = "\n".join(
+            f"・{SCHOOL_NAMES.get(k, k)}: {url_map.get(k, '')}" for k in changed.keys()
+        )
+        body = (
+            f"{summary}\n\n"
+            f"更新元ページ:\n{source_lines}\n\n"
+            f"ダッシュボード: {DASHBOARD_URL}\n"
+            f"カレンダー: {DASHBOARD_URL}events.ics"
+        )
         send_gmail_notification(subject, body)
 
     print("UPDATED")
