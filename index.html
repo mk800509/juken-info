@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>志望校 入試情報ダッシュボード</title>
+<style>
+  :root{
+    --blue:#2563eb; --blue-bg:#eff6ff;
+    --purple:#7c3aed; --purple-bg:#f5f3ff;
+    --green:#059669; --green-bg:#ecfdf5;
+    --highlight:#fef3c7; --highlight-border:#f59e0b;
+    --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;
+    background:#f9fafb; color:var(--ink); margin:0; padding:24px;
+  }
+  .wrap{max-width:960px;margin:0 auto;}
+  header{margin-bottom:20px;}
+  h1{font-size:22px;margin:0 0 6px;}
+  .meta{color:var(--muted);font-size:13px;}
+  .legend{
+    display:flex;gap:14px;align-items:center;margin-top:10px;font-size:12px;color:var(--muted);
+    flex-wrap:wrap;
+  }
+  .legend .swatch{
+    display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px;
+  }
+  .swatch.hl{background:var(--highlight);border:1px solid var(--highlight-border);}
+  .grid{display:grid;grid-template-columns:1fr;gap:16px;}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.03);
+  }
+  .card-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+  .school-name{font-size:17px;font-weight:700;margin:0;}
+  .school-name a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted);}
+  .badge{
+    font-size:11px;padding:2px 8px;border-radius:999px;font-weight:600;white-space:nowrap;
+  }
+  .badge.public{color:var(--blue);background:var(--blue-bg);}
+  .badge.private{color:var(--purple);background:var(--purple-bg);}
+  .badge.national{color:var(--green);background:var(--green-bg);}
+  .section-title{font-size:12px;color:var(--muted);font-weight:600;margin:14px 0 4px;text-transform:uppercase;letter-spacing:.03em;}
+  .row{font-size:14px;line-height:1.6;margin:2px 0;}
+  .row .label{color:var(--muted);margin-right:6px;}
+  .updated{
+    background:var(--highlight);border-left:3px solid var(--highlight-border);
+    padding:4px 8px;border-radius:4px;display:inline-block;
+  }
+  .updated::before{content:"● 更新";font-size:10px;color:var(--highlight-border);font-weight:700;margin-right:6px;}
+  table.events{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:4px;}
+  table.events th{
+    text-align:left;font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;
+    padding:4px 8px;border-bottom:1px solid var(--line);
+  }
+  table.events td{padding:6px 8px;border-bottom:1px solid #f1f3f5;vertical-align:top;}
+  table.events tr.updated-row td{background:var(--highlight);}
+  table.events tr.updated-row td:first-child{border-left:3px solid var(--highlight-border);}
+  .note{font-size:12.5px;color:var(--muted);margin-top:6px;}
+  .link-btn{font-size:12px;color:var(--blue);text-decoration:none;}
+  .changelog{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);}
+  .changelog ul{margin:4px 0 0;padding-left:18px;font-size:13px;color:#374151;}
+  .changelog li{margin:3px 0;}
+  .changelog .empty{color:var(--muted);font-size:13px;font-style:italic;}
+  footer{margin-top:24px;font-size:12px;color:var(--muted);text-align:center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>志望校 入試情報ダッシュボード</h1>
+    <div class="meta" id="last-checked">最終チェック：2026年7月18日（各校の説明会詳細ページを反映）　｜　自動チェック：毎日 8:00 / 13:00 / 20:00</div>
+    <div class="legend">
+      <span><span class="swatch hl"></span>直近のチェックで内容が変わった箇所</span>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- SCHOOL:suiran -->
+    <div class="card" data-school="横浜翠嵐高校">
+      <div class="card-head">
+        <h2 class="school-name"><a href="https://www.pen-kanagawa.ed.jp/yokohamasuiran-h/zennichi/nyugaku/r8_setsumeikai.html" target="_blank">横浜翠嵐高校</a></h2>
+        <span class="badge public">県立・全日制</span>
+      </div>
+      <div class="section-title">入試の概要</div>
+      <div class="row">神奈川県共通選抜。内申点＋学力検査（5教科）＋特色検査の総合選考。2026年度 最終志願倍率 2.05倍（県内公立トップ）。</div>
+      <div class="row"><span class="label">出願期間</span>2027/1/25〜1/29　<span class="label">学力検査</span>2027/2/16　<span class="label">合格発表</span>2027/2/26</div>
+
+      <div class="section-title">学校説明会・行事（令和8年度、更新日 2026/7/14）</div>
+      <table class="events">
+        <tr><th>行事</th><th>日時</th><th>会場</th><th>申込</th></tr>
+        <tr><td>全公立展</td><td>6/13(土)</td><td>パシフィコ横浜</td><td>−</td></tr>
+        <tr><td>翠翔祭（文化祭）</td><td>6/27(土)・28(日)</td><td>本校</td><td>不要</td></tr>
+        <tr><td>学校見学会</td><td>7/28(火)・29(水)　各日3部制（13:15/14:30/15:45〜）</td><td>本校</td><td>事前申込制・申込開始7/14(火)12:00・定員次第終了</td></tr>
+        <tr><td>公私合同説明・相談会</td><td>8/1(土)</td><td>県立神奈川総合高／神奈川工業高</td><td>−</td></tr>
+        <tr><td>体育祭</td><td>9/16(水)</td><td>本校</td><td>−</td></tr>
+        <tr><td>第1回学校説明会</td><td>9/19(土)</td><td>西公会堂</td><td>要確認</td></tr>
+        <tr><td>第2回学校説明会</td><td>12/12(土)午前</td><td>本校</td><td>要確認</td></tr>
+      </table>
+      <div class="note">学校見学会は7/14(火)12:00に申込開始済み・定員になり次第受付終了。中学生本人のみ参加可。</div>
+
+      <div class="changelog">
+        <div class="section-title">更新履歴</div>
+        <ul id="log-suiran"><li>2026/7/18 学校説明会等の詳細ページ（r8_setsumeikai.html）を反映し、行事・見学会の申込情報を追加</li></ul>
+      </div>
+    </div>
+    <!-- /SCHOOL -->
+
+    <!-- SCHOOL:kawawa -->
+    <div class="card" data-school="川和高校">
+      <div class="card-head">
+        <h2 class="school-name"><a href="https://www.pen-kanagawa.ed.jp/kawawa-h/nyugaku/20260-kakkousetumeikai-itiran.html" target="_blank">川和高校</a></h2>
+        <span class="badge public">県立・全日制</span>
+      </div>
+      <div class="section-title">入試の概要</div>
+      <div class="row">神奈川県共通選抜。第一次選考は内申4：学力6：特色1、第二次選考は内申3：学力7：特色1の比率。</div>
+      <div class="row"><span class="label">出願期間</span>2027/1/25〜1/29　<span class="label">学力検査</span>2027/2/16　<span class="label">合格発表</span>2027/2/26</div>
+
+      <div class="section-title">学校説明会・行事（令和8年度、更新日 2026/6/8）</div>
+      <div class="row updated">今年度は対面説明会を実施せず、動画配信（オンライン）形式に変更。視聴期間は7月下旬〜年度末、申込は電子申請システムで7月下旬開始予定。</div>
+      <table class="events">
+        <tr><th>行事</th><th>日時</th><th>会場</th><th>申込</th></tr>
+        <tr><td>全公立展</td><td>6/13(土) 10:00〜15:30</td><td>パシフィコ横浜</td><td>事前申込制</td></tr>
+        <tr><td>第1回学校施設見学</td><td>7/28(火)</td><td>本校</td><td>神奈川県電子申請・完全予約制（実施約1か月前に受付開始）</td></tr>
+        <tr><td>横浜北地区公私合同説明会</td><td>8/1(土)</td><td>神奈川総合高／神奈川工業高</td><td>事前申込制</td></tr>
+        <tr><td>第1回部活動体験</td><td>8/2(日)</td><td>本校など</td><td>電子申請・完全予約制</td></tr>
+        <tr><td>第2回学校施設見学</td><td>8/21(金)</td><td>本校</td><td>電子申請・完全予約制</td></tr>
+        <tr><td>文化祭（川和祭）</td><td>9/26(土)10:00〜15:00・27(日)9:30〜14:30</td><td>本校</td><td>一般公開・予約不要</td></tr>
+        <tr><td>第2回部活動体験／第3回学校施設見学（個別相談）</td><td>11/1(日)</td><td>本校</td><td>電子申請・完全予約制</td></tr>
+        <tr><td>第3回部活動体験</td><td>12/6(日)</td><td>本校など</td><td>電子申請・完全予約制</td></tr>
+      </table>
+      <div class="note">申込制の行事は、実施日の約1か月前に詳細案内・申込受付開始の予定。個別の施設見学は対応不可。</div>
+
+      <div class="changelog">
+        <div class="section-title">更新履歴</div>
+        <ul id="log-kawawa"><li>2026/7/18 学校説明会詳細ページを反映。今年度はオンライン動画配信のみである点、および行事・見学会日程を追加</li></ul>
+      </div>
+    </div>
+    <!-- /SCHOOL -->
+
+    <!-- SCHOOL:gakugei -->
+    <div class="card" data-school="東京学芸大学附属高校">
+      <div class="card-head">
+        <h2 class="school-name"><a href="https://www.gakugei-hs.setagaya.tokyo.jp/exam/info/" target="_blank">東京学芸大学附属高校</a></h2>
+        <span class="badge national">国立</span>
+      </div>
+      <div class="section-title">入試の概要</div>
+      <div class="row">一般入試（5教科重視）と帰国生入試（3教科）の2区分。「令和9年度 生徒募集に関する公示」が令和8年7月6日付で更新済み（詳細PDFは公式サイト参照）。</div>
+
+      <div class="section-title">学校説明会・行事（2026年度）</div>
+      <table class="events">
+        <tr><th>行事</th><th>日時</th><th>備考</th></tr>
+        <tr><td>授業公開</td><td>5/9(土)</td><td>終了</td></tr>
+        <tr><td class="updated">学校説明会</td><td class="updated">7/24(金)</td><td class="updated">6月中旬に申込開始（要事前申込・詳細は公式サイト参照）</td></tr>
+        <tr><td>学校説明会</td><td>10/3(土)・10/4(日)</td><td>要確認</td></tr>
+        <tr><td>授業公開</td><td>翌2/20(土)</td><td>要確認</td></tr>
+      </table>
+      <div class="note">平日（月〜金、休業日を除く）9:00〜16:00は校舎周りを自由見学可（校舎内不可）。守衛または事務室に一声かけて入構証を受け取る必要あり。</div>
+
+      <div class="changelog">
+        <div class="section-title">更新履歴</div>
+        <ul id="log-gakugei"><li>2026/7/18 学校説明会専用ページ（infosession2022s）を反映し、7/24説明会の申込時期などを追加</li></ul>
+      </div>
+    </div>
+    <!-- /SCHOOL -->
+
+    <!-- SCHOOL:chuo-yokohama -->
+    <div class="card" data-school="中央大学附属横浜高校">
+      <div class="card-head">
+        <h2 class="school-name"><a href="https://www.yokohama-js.chuo-u.ac.jp/admission/senior/" target="_blank">中央大学附属横浜高校</a></h2>
+        <span class="badge private">私立</span>
+      </div>
+      <div class="section-title">入試の概要（推薦／一般A／一般B）</div>
+      <div class="row"><span class="label">推薦</span>出願1/14〜1/16、試験1/22、発表1/22</div>
+      <div class="row"><span class="label">一般A（書類選考）</span>出願1/25〜2/1、発表2/12〜2/15</div>
+      <div class="row"><span class="label">一般B（学力試験・国英数）</span>出願1/25〜2/1、試験2/12、発表2/12〜2/15</div>
+
+      <div class="section-title">学校説明会（要予約）</div>
+      <table class="events">
+        <tr><th>回</th><th>開催日時</th><th>予約受付開始</th></tr>
+        <tr><td>第1回</td><td>7/25(土) 10:00〜12:00</td><td>7/10(金)6:00〜</td></tr>
+        <tr><td>第2回</td><td>10/24(土) 14:30〜16:30</td><td>10/9(金)6:00〜</td></tr>
+        <tr><td>第3回</td><td>11/21(土) 14:30〜16:30</td><td>11/6(金)6:00〜</td></tr>
+      </table>
+      <div class="section-title">学校見学会（要予約）</div>
+      <table class="events">
+        <tr><th>日時</th><th>予約受付期間</th></tr>
+        <tr><td>5/9(土)14:00〜17:00</td><td>4/24(金)〜5/8(金)</td></tr>
+        <tr><td>8/1(土)13:30〜16:30</td><td>7/17(金)〜7/31(金)</td></tr>
+        <tr><td>翌3/20(土)13:30〜16:00</td><td>翌3/5(金)〜3/19(金)</td></tr>
+      </table>
+      <div class="row">紅央祭（学園祭）：9/5(土)・6(日)　受験生本人とご家族のみ入場可・要予約</div>
+
+      <div class="changelog">
+        <div class="section-title">更新履歴</div>
+        <ul id="log-chuo-yokohama"><li>2026/7/18 学校説明会・見学会の予約受付開始日時を詳細化</li></ul>
+      </div>
+    </div>
+    <!-- /SCHOOL -->
+
+    <!-- SCHOOL:yamate -->
+    <div class="card" data-school="山手学院高校">
+      <div class="card-head">
+        <h2 class="school-name"><a href="https://www.yamate-gakuin.ac.jp/examinee/h_boshu/" target="_blank">山手学院高校</a></h2>
+        <span class="badge private">私立</span>
+      </div>
+      <div class="section-title">入試の概要</div>
+      <div class="row">併願入試・オープン入試（各2日程）。試験科目は国語・英語・数学の3教科。</div>
+
+      <div class="section-title">学校説明会（要予約・来校型/オンライン型）</div>
+      <table class="events">
+        <tr><th>行事</th><th>開催日時</th><th>予約受付開始</th></tr>
+        <tr><td>夏休み学校説明会</td><td>8/22(土) 14:00〜16:00</td><td>7/26(日)10:00〜</td></tr>
+        <tr><td>山手祭（文化祭）</td><td>10/3(土)・4(日) 10:00〜15:00</td><td>予約不要</td></tr>
+        <tr><td>学校説明会</td><td>10/10(土) 14:00〜16:00</td><td>9/20(日)10:00〜</td></tr>
+        <tr><td>学校説明会</td><td>11/7(土) 14:00〜16:00</td><td>10/11(日)10:00〜</td></tr>
+        <tr><td>学校説明会</td><td>11/28(土) 10:00〜12:00</td><td>11/8(日)10:00〜</td></tr>
+      </table>
+      <div class="note">10/10の説明会では来校型参加者にオリジナル過去問題集・募集要項等を配布予定。</div>
+
+      <div class="changelog">
+        <div class="section-title">更新履歴</div>
+        <ul id="log-yamate"><li>2026/7/18 各説明会の予約受付開始日時を追加</li></ul>
+      </div>
+    </div>
+    <!-- /SCHOOL -->
+
+  </div>
+
+  <footer>
+    このページは志望校監視タスクにより自動更新されます。正式な情報は必ず各校公式サイトでご確認ください。
+  </footer>
+
+</div>
+</body>
+</html>
