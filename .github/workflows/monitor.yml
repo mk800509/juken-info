@@ -1,0 +1,37 @@
+name: Kanagawa Koukou Nyushi Monitor
+
+on:
+  schedule:
+    - cron: '0 23,4,11 * * *'   # 8:00 / 13:00 / 20:00 JST (JST = UTC+9, no DST)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run monitor script
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 scripts/monitor.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.email "kajiwara.makoto@gmail.com"
+          git config user.name "kanagawa-koukou-nyushi-monitor-bot"
+          git add index.html events.ics state.json
+          if [ -f notify_message.txt ]; then git add notify_message.txt; fi
+          git diff --cached --quiet || git commit -m "Auto update $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push origin gh-pages
