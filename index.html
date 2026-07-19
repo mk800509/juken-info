@@ -67,6 +67,12 @@
     display:inline-block;font-size:10px;font-weight:700;color:#9ca3af;background:#f3f4f6;
     border-radius:999px;padding:1px 7px;margin-left:5px;text-decoration:none;vertical-align:1px;
   }
+  .status-tag{
+    display:inline-block;font-size:10px;font-weight:700;border-radius:999px;padding:1px 7px;
+    margin-left:5px;vertical-align:1px;white-space:nowrap;
+  }
+  .status-tag.full{color:#b91c1c;background:#fee2e2;}
+  .status-tag.applied{color:#065f46;background:#d1fae5;}
   .note{font-size:12.5px;color:var(--muted);margin-top:6px;}
   .link-btn{font-size:12px;color:var(--blue);text-decoration:none;}
   .changelog{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);}
@@ -81,10 +87,11 @@
 
   <header>
     <h1>志望校 入試情報ダッシュボード</h1>
-    <div class="meta" id="last-checked">最終チェック：2026年7月20日（法政大学第二・桐蔭学園・朋優学院を追加、偏差値を反映、表示順を変更）　｜　自動チェック：毎日 6:00 / 9:00 / 12:00 / 16:00 / 20:00</div>
+    <div class="meta" id="last-checked">最終チェック：2026年7月19日（桐蔭学園の入試日程・説明会日程、朋優学院の見学会日程を追加、満席・申込済みの状況を反映）　｜　自動チェック：毎日 6:00 / 9:00 / 12:00 / 16:00 / 20:00</div>
     <div class="legend">
       <span><span class="swatch hl"></span>直近のチェックで内容が変わった箇所</span>
       <span>終了済みのイベントには「終了」タグが付き、薄く表示されます</span>
+      <span><span class="status-tag full">満席</span>満席／<span class="status-tag applied">申込済み</span>予約済みの行事</span>
     </div>
   </header>
 
@@ -108,7 +115,7 @@
         <tr><th>行事</th><th>日時</th><th>会場</th><th>申込</th></tr>
         <tr data-date="2026-06-13"><td>全公立展</td><td>6/13(土)</td><td>パシフィコ横浜</td><td>−</td></tr>
         <tr data-date="2026-06-28"><td>翠翔祭（文化祭）</td><td>6/27(土)・28(日)</td><td>本校</td><td>不要</td></tr>
-        <tr data-date="2026-07-29"><td>学校見学会</td><td>7/28(火)・29(水)　各日3部制（13:15/14:30/15:45〜）</td><td>本校</td><td>事前申込制・申込開始7/14(火)12:00・定員次第終了</td></tr>
+        <tr data-date="2026-07-29" class="updated-row"><td>学校見学会<span class="status-tag applied">申込済み</span></td><td>7/28(火)・29(水)　各日3部制（13:15/14:30/15:45〜）</td><td>本校</td><td>事前申込制・申込開始7/14(火)12:00・定員次第終了</td></tr>
         <tr data-date="2026-08-01"><td>公私合同説明・相談会</td><td>8/1(土)</td><td>県立神奈川総合高／神奈川工業高</td><td>−</td></tr>
         <tr data-date="2026-09-16"><td>体育祭</td><td>9/16(水)</td><td>本校</td><td>−</td></tr>
         <tr data-date="2026-09-19"><td>第1回学校説明会</td><td>9/19(土)</td><td>西公会堂</td><td>要確認</td></tr>
@@ -118,7 +125,7 @@
 
       <div class="changelog">
         <div class="section-title">更新履歴</div>
-        <ul id="log-suiran"><li>2026/7/18 学校説明会等の詳細ページ（r8_setsumeikai.html）を反映し、行事・見学会の申込情報を追加</li></ul>
+        <ul id="log-suiran"><li>2026/7/19 学校見学会（7/28・29）を申込済みとしてマーク</li><li>2026/7/18 学校説明会等の詳細ページ（r8_setsumeikai.html）を反映し、行事・見学会の申込情報を追加</li></ul>
       </div>
     </div>
     <!-- /SCHOOL -->
@@ -174,7 +181,7 @@
       <table class="events">
         <tr><th>行事</th><th>日時</th><th>備考</th></tr>
         <tr data-date="2026-05-09"><td>授業公開</td><td>5/9(土)</td><td>終了</td></tr>
-        <tr data-date="2026-07-24"><td>学校説明会</td><td>7/24(金)</td><td>午前9:30〜12:00・午後13:30〜16:00の2部制。申込開始6/19(金)15:00、定員700名</td></tr>
+        <tr data-date="2026-07-24" class="updated-row"><td>学校説明会<span class="status-tag full">満席</span></td><td>7/24(金)</td><td>午前9:30〜12:00・午後13:30〜16:00の2部制。申込開始6/19(金)15:00、定員700名。現在満席。</td></tr>
         <tr data-date="2026-10-04"><td>学校説明会</td><td>10/3(土)・10/4(日)</td><td>要確認</td></tr>
         <tr data-date="2027-02-20"><td>授業公開</td><td>翌2/20(土)</td><td>要確認</td></tr>
       </table>
@@ -182,7 +189,7 @@
 
       <div class="changelog">
         <div class="section-title">更新履歴</div>
-        <ul id="log-gakugei"><li>2026/7/18 学校説明会専用ページ（infosession2022s）を反映し、7/24説明会の申込時期などを追加</li></ul>
+        <ul id="log-gakugei"><li>2026/7/19 7/24学校説明会が満席になったため反映</li><li>2026/7/18 学校説明会専用ページ（infosession2022s）を反映し、7/24説明会の申込時期などを追加</li></ul>
       </div>
     </div>
     <!-- /SCHOOL -->
@@ -204,7 +211,7 @@
       <div class="section-title">学校説明会（要予約）</div>
       <table class="events">
         <tr><th>回</th><th>開催日時</th><th>予約受付開始</th></tr>
-        <tr data-date="2026-07-25"><td>第1回</td><td>7/25(土) 10:00〜12:00</td><td>7/10(金)6:00〜</td></tr>
+        <tr data-date="2026-07-25" class="updated-row"><td>第1回<span class="status-tag full">満席</span></td><td>7/25(土) 10:00〜12:00</td><td>7/10(金)6:00〜（満席）</td></tr>
         <tr data-date="2026-10-24"><td>第2回</td><td>10/24(土) 14:30〜16:30</td><td>10/9(金)6:00〜</td></tr>
         <tr data-date="2026-11-21"><td>第3回</td><td>11/21(土) 14:30〜16:30</td><td>11/6(金)6:00〜</td></tr>
       </table>
@@ -212,14 +219,14 @@
       <table class="events">
         <tr><th>日時</th><th>予約受付期間</th></tr>
         <tr data-date="2026-05-09"><td>5/9(土)14:00〜17:00</td><td>4/24(金)〜5/8(金)</td></tr>
-        <tr data-date="2026-08-01"><td>8/1(土)13:30〜16:30</td><td>7/17(金)〜7/31(金)</td></tr>
+        <tr data-date="2026-08-01" class="updated-row"><td>8/1(土)13:30〜16:30<span class="status-tag applied">申込済み</span></td><td>7/17(金)〜7/31(金)</td></tr>
         <tr data-date="2027-03-20"><td>翌3/20(土)13:30〜16:00</td><td>翌3/5(金)〜3/19(金)</td></tr>
       </table>
       <div class="row">紅央祭（学園祭）：9/5(土)・6(日)　受験生本人とご家族のみ入場可・要予約</div>
 
       <div class="changelog">
         <div class="section-title">更新履歴</div>
-        <ul id="log-chuo-yokohama"><li>2026/7/18 学校説明会・見学会の予約受付開始日時を詳細化</li></ul>
+        <ul id="log-chuo-yokohama"><li>2026/7/19 第1回学校説明会（7/25）が満席、8/1学校見学会は申込済みであることを反映</li><li>2026/7/18 学校説明会・見学会の予約受付開始日時を詳細化</li></ul>
       </div>
     </div>
     <!-- /SCHOOL -->
@@ -294,20 +301,26 @@
           <span class="badge hensachi">偏差値 68</span>
         </div>
       </div>
-      <div class="section-title">入試の概要</div>
-      <div class="row">2027年度入試日程はPDF資料（入試概要ページ内）で公開されています。詳細は公式サイトでご確認ください。</div>
+      <div class="section-title updated">入試の概要（推薦／一般A・オープン／一般B・書類選考）</div>
+      <div class="row updated"><span class="label">推薦</span>出願1/14(木)6:00〜1/16(土)16:00（書類郵送は〜1/18(月)必着）、試験1/22(金)オンライン面接、発表1/23(土)</div>
+      <div class="row updated"><span class="label">一般A（オープン）</span>出願1/24(日)10:00〜1/29(金)16:00（書類郵送は〜1/30(土)必着）、試験2/11(木・祝)英語・国語・数学、発表2/11(木・祝)17:00</div>
+      <div class="row updated"><span class="label">一般B（書類選考）</span>出願は一般Aと同期間、書類選考（課題作文提出）、発表2/10(水)10:00</div>
+      <div class="row updated">募集人数（プログレス／アドバンス／スタンダードの3コース制、各男女）：推薦30/80/90名、一般A 30/30/20名、一般B 150/190/100名。</div>
 
       <div class="section-title">学校説明会・行事</div>
       <table class="events">
         <tr><th>行事</th><th>日時</th><th>会場</th><th>申込</th></tr>
         <tr data-date="2026-09-20"><td>鵬翔祭（学園祭）</td><td>9/19(土)・20(日) 9:00〜15:00</td><td>本校</td><td>不要</td></tr>
-        <tr><td>校内の学校説明会</td><td>現時点で日程未公開</td><td>本校</td><td>決まり次第、公式予約サイトで案内予定</td></tr>
+        <tr data-date="2026-10-24" class="updated-row"><td>学校説明会</td><td>10/24(土) 10:00〜</td><td>本校</td><td>事前予約制（定員あり）</td></tr>
+        <tr data-date="2026-11-07" class="updated-row"><td>学校説明会</td><td>11/7(土) 10:00〜／14:30〜</td><td>本校</td><td>事前予約制（定員あり）</td></tr>
+        <tr data-date="2026-11-14" class="updated-row"><td>学校説明会</td><td>11/14(土) 10:00〜／14:30〜</td><td>本校</td><td>事前予約制（定員あり）</td></tr>
       </table>
-      <div class="note">学校説明会の予約は外部システム（mirai-compass）で受け付け。日程公開のタイミングで随時チェックします。</div>
+      <div class="row updated">学校説明会は全5回（10/24・11/7×2・11/14×2）すべて事前予約制・定員あり。9/1(火)〜オンデマンド学校説明会（動画）も公開予定。</div>
+      <div class="note">学校説明会の予約は外部システム（mirai-compass）で受け付け。入試日程・説明会日程は2027年度入試日程PDF（入試概要ページ内）を反映。</div>
 
       <div class="changelog">
         <div class="section-title">更新履歴</div>
-        <ul id="log-toin"><li class="empty">まだ更新は検知されていません（初回登録）</li></ul>
+        <ul id="log-toin"><li>2026/7/19 入試概要ページのPDF（2027年度入試日程）を反映し、推薦・一般A/B入試日程と学校説明会5回分の日程を追加</li></ul>
       </div>
     </div>
     <!-- /SCHOOL -->
@@ -324,19 +337,32 @@
       <div class="section-title">入試の概要</div>
       <div class="row">国公立TGコース（偏差値67）／国公立コース／特進コースの3コース制。生徒募集要項（2027年度版）を2026/7/9に公開。</div>
 
-      <div class="section-title">学校説明会・行事</div>
+      <div class="section-title updated">スクールライフ見学会・授業見学会 日程（要予約）</div>
+      <table class="events">
+        <tr><th>開催日</th><th>内容</th><th>予約受付開始</th><th>予約締切</th><th>定員</th></tr>
+        <tr data-date="2026-07-25" class="updated-row"><td>7/25(土)<span class="status-tag full">満席</span></td><td>スクールライフ見学会 14:00〜16:00（受付13:45〜）</td><td>7/5(日)</td><td>7/25(土)</td><td>1200名</td></tr>
+        <tr data-date="2026-08-22" class="updated-row"><td>8/22(土)</td><td>スクールライフ見学会（午前）</td><td>8/2(日)</td><td>8/22(土)</td><td>800名</td></tr>
+        <tr data-date="2026-08-22" class="updated-row"><td>8/22(土)</td><td>スクールライフ見学会（午後）</td><td>8/2(日)</td><td>8/22(土)</td><td>800名</td></tr>
+        <tr data-date="2026-09-05" class="updated-row"><td>9/5(土)</td><td>授業見学会（中3生と保護者1名のペア参加のみ）</td><td>8/16(日)</td><td>9/5(土)</td><td>200名</td></tr>
+        <tr data-date="2026-10-10" class="updated-row"><td>10/10(土)</td><td>授業見学会（中3生と保護者1名のペア参加のみ）</td><td>9/20(日)</td><td>10/10(土)</td><td>200名</td></tr>
+        <tr data-date="2026-10-31" class="updated-row"><td>10/31(土)</td><td>スクールライフ見学会</td><td>10/11(日)</td><td>10/31(土)</td><td>800名</td></tr>
+        <tr data-date="2026-11-07" class="updated-row"><td>11/7(土)</td><td>授業見学会（中3生と保護者1名のペア参加のみ）</td><td>10/18(日)</td><td>11/7(土)</td><td>200名</td></tr>
+        <tr data-date="2026-11-21" class="updated-row"><td>11/21(土)</td><td>スクールライフ見学会</td><td>11/1(日)</td><td>11/21(土)</td><td>800名</td></tr>
+      </table>
+      <div class="note">会員限定サイト内の予約状況ページを反映。動画では伝わらない学校の様子を体験できる見学会（要予約）。</div>
+
+      <div class="section-title">その他の説明会・行事</div>
       <table class="events">
         <tr><th>行事</th><th>形式</th><th>備考</th></tr>
         <tr><td>オンライン説明会</td><td>予約不要</td><td>朋優学院を知るための第一歩として随時視聴可能</td></tr>
         <tr><td>外部合同説明会</td><td>要確認</td><td>入試担当者に質問できる合同説明会。詳細は公式サイト参照</td></tr>
-        <tr><td>オープンスクール（授業見学）</td><td>完全予約制・時間制</td><td>中3生のみ受付。保護者と中3生の2名で参加</td></tr>
         <tr><td>虹色祭（文化祭）</td><td>要確認</td><td>詳細は決まり次第更新</td></tr>
       </table>
-      <div class="note">説明会関連は外部サイト（オンライン説明会・オープンスクール）で運用。詳細日程が公式サイトに掲載され次第反映します。</div>
+      <div class="note">説明会関連は外部サイト（オンライン説明会・会員サイト予約）で運用。詳細日程が公式サイトに掲載され次第反映します。</div>
 
       <div class="changelog">
         <div class="section-title">更新履歴</div>
-        <ul id="log-hoyu"><li class="empty">まだ更新は検知されていません（初回登録）</li></ul>
+        <ul id="log-hoyu"><li>2026/7/19 会員サイト内の見学会予約状況（キャプチャ提供）を反映し、8回分の日程・定員・満席状況を追加</li></ul>
       </div>
     </div>
     <!-- /SCHOOL -->
