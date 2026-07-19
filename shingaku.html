@@ -50,6 +50,7 @@
   th:first-child,td:first-child{text-align:left;white-space:normal;}
   tr:last-child td{border-bottom:none;}
   .rate{color:var(--muted);font-size:11px;}
+  .flag{color:var(--amber);font-weight:700;margin-left:1px;}
   .overview-wrap{overflow-x:auto;}
   table.overview{font-size:12.5px;}
   table.overview th{position:sticky;top:0;background:#fff;}
@@ -71,30 +72,31 @@
   <div class="caveat">
     <b>この表を読むときの注意点</b>
     <ul>
-      <li><b>「合格者数」と「進学者数」は別物です。</b>ほとんどの学校が公表しているのは合格者数（延べ数）で、1人が複数校に合格した分を重複カウントしている可能性があります。中央大学附属横浜の国公立進学・内部進学と、法政大学第二の全項目は、実際に進学した人数（進学者数）として公表されているものです。</li>
-      <li><b>卒業生数（学年の人数）が非公表の学校が多いです。</b>山手学院・中央大学附属横浜・法政大学第二（概算）以外の5校（翠嵐・川和・学芸大附属・桐蔭学園・朋優学院）は卒業生数を公式に公表していないため、比率（%）は計算できる学校のみ表示しています。</li>
-      <li><b>桐蔭学園のみ直近1年（2026年）分しか公式サイトに残っていません。</b>他校は2〜3年分の推移を掲載しています。</li>
-      <li>「GMARCH」の集計範囲（学習院を含むか等）は学校の公表方法によって微妙に異なります。各校セクションの注記をご確認ください。</li>
+      <li><b>すべて現役（既卒・浪人を除く）の人数です。</b>ただし学校によっては現役／既卒を分離して公表しておらず、その場合はやむを得ず現役+既卒の合計（延べ）を使っています。該当セルには <span class="flag">†</span> を付けています。</li>
+      <li><b>「合格者数」と「進学者数」は別物です。</b>ほとんどの学校が公表しているのは合格者数（延べ数）で、1人が複数校に合格した分を重複カウントしている可能性があります。中央大学附属横浜の内部進学と、法政大学第二の内部進学・他大学進学は、実際に進学した人数（進学者数）です。</li>
+      <li><b>GMARCH列には附属大学への内部進学者数を含めています。</b>中央大学附属横浜（→中央大学）と法政大学第二（→法政大学）は、内部進学者数＋他のGMARCH校への現役合格者数の合計です。括弧内に内訳を表示しています。</li>
+      <li><b>桐蔭学園のみ直近1年（2026年）分しか公式サイトに残っていません。</b>他校は下記の学校別詳細で2〜3年分の推移を掲載しています。</li>
+      <li>卒業生数・比率(%)・医学部医学科は今回の比較表からは省略しています。</li>
     </ul>
   </div>
 
-  <h2>ひと目比較（直近年度）</h2>
+  <h2>ひと目比較（直近年度・現役のみ）</h2>
   <div class="overview-wrap">
   <table class="overview">
     <tr>
-      <th>学校</th><th>年度</th><th>卒業生数</th><th>国公立</th><th>早稲田</th><th>慶應</th><th>上智</th><th>GMARCH</th><th>医学部医学科</th><th>附属内部進学</th>
+      <th>学校</th><th>年度</th><th>東大</th><th>京大</th><th>一橋</th><th>東京科学大</th><th>その他国公立</th><th>早慶上智</th><th>GMARCH（内部進学含む）</th>
     </tr>
-    <tr><td>横浜翠嵐</td><td>'26卒</td><td>―</td><td>204</td><td>200</td><td>135</td><td>35</td><td>319</td><td>―</td><td>―</td></tr>
-    <tr><td>川和</td><td>'26卒</td><td>―</td><td>107</td><td>97</td><td>42</td><td>42</td><td>606</td><td>約4</td><td>―</td></tr>
-    <tr><td>東京学芸大附属</td><td>'26卒</td><td>―</td><td>―</td><td>108</td><td>95</td><td>32</td><td>274</td><td>―</td><td>―</td></tr>
-    <tr><td>中央大学附属横浜</td><td>'26卒</td><td>344</td><td>33<span class="rate">(9.6%)</span></td><td>12</td><td>17</td><td>7</td><td>46</td><td>―</td><td>267<span class="rate">(77.6%)</span></td></tr>
-    <tr><td>法政大学第二</td><td>'25卒</td><td>約631</td><td>8</td><td>9</td><td>11</td><td>2</td><td>16</td><td>1</td><td>551<span class="rate">(約87%)</span></td></tr>
-    <tr><td>山手学院</td><td>'26卒</td><td>443</td><td>117<span class="rate">(26.4%)</span></td><td>86<span class="rate">(19.4%)</span></td><td>50<span class="rate">(11.3%)</span></td><td>53<span class="rate">(12.0%)</span></td><td>582<span class="rate">(131%)</span></td><td>―</td><td>―</td></tr>
-    <tr><td>桐蔭学園</td><td>'26卒</td><td>―</td><td>126</td><td>57</td><td>47</td><td>30</td><td>513</td><td>24</td><td>―</td></tr>
-    <tr><td>朋優学院</td><td>'26卒</td><td>―</td><td>97<span class="rate">(現役91)</span></td><td>58</td><td>34</td><td>54</td><td>514</td><td>15</td><td>―</td></tr>
+    <tr><td>横浜翠嵐</td><td>'26卒</td><td>36</td><td>9</td><td>7</td><td>21</td><td>103</td><td>334</td><td>319<span class="flag">†</span></td></tr>
+    <tr><td>川和</td><td>'26卒</td><td>2</td><td>1</td><td>2</td><td>10</td><td>77</td><td>165</td><td>606<span class="flag">†</span></td></tr>
+    <tr><td>東京学芸大附属</td><td>'26卒</td><td>8</td><td>8<span class="flag">†</span></td><td>6<span class="flag">†</span></td><td>5</td><td>―</td><td>235<span class="flag">†</span></td><td>274<span class="flag">†</span></td></tr>
+    <tr><td>中央大学附属横浜</td><td>'26卒</td><td>0</td><td>0</td><td>2</td><td>2</td><td>39</td><td>36</td><td>313<span class="flag">†</span><br><span class="rate">(内部267+他46)</span></td></tr>
+    <tr><td>法政大学第二</td><td>'25卒</td><td>0<span class="flag">†</span></td><td>0<span class="flag">†</span></td><td>1<span class="flag">†</span></td><td>0<span class="flag">†</span></td><td>7<span class="flag">†</span></td><td>22<span class="flag">†</span></td><td>567<span class="flag">†</span><br><span class="rate">(内部551+他16)</span></td></tr>
+    <tr><td>山手学院</td><td>'26卒</td><td>1</td><td>0</td><td>6</td><td>2</td><td>91</td><td>180</td><td>582<span class="flag">†</span></td></tr>
+    <tr><td>桐蔭学園</td><td>'26卒</td><td>3</td><td>0</td><td>3</td><td>10</td><td>98</td><td>120</td><td>513<span class="flag">†</span></td></tr>
+    <tr><td>朋優学院</td><td>'26卒</td><td>1<span class="flag">†</span></td><td>2<span class="flag">†</span></td><td>3<span class="flag">†</span></td><td>3<span class="flag">†</span></td><td>88<span class="flag">†</span></td><td>146<span class="flag">†</span></td><td>514<span class="flag">†</span></td></tr>
   </table>
   </div>
-  <div class="note">数値は原則「合格者数（延べ）」。中央大学附属横浜の国公立・内部進学、法政大学第二の全項目は実進学者数。比率(%)は卒業生数が公表されている学校のみ表示。「―」は非公表・データ不足。</div>
+  <div class="note">「東京科学大」は旧東京工業大学・東京医科歯科大学の統合校。「―」はデータ不足（東京学芸大附属は国公立の総合計が原本PDFの表組み崩れにより信頼できる形で抽出できませんでした）。† の意味は上の注意点を参照。</div>
 
   <h2>学校ごとの詳細（複数年推移）</h2>
 
