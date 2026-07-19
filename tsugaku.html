@@ -44,7 +44,7 @@
   .badge.time-short{color:#065f46;background:#d1fae5;}
   .badge.time-mid{color:#1e40af;background:#dbeafe;}
   .badge.time-long{color:#b91c1c;background:#fee2e2;}
-  .sub{font-size:12.5px;color:var(--muted);margin-bottom:8px;line-height:1.6;}
+  .sub{font-size:12.5px;color:var(--muted);margin-bottom:8px;line-height:1.8;}
   table{width:100%;border-collapse:collapse;font-size:13px;}
   th,td{padding:6px 8px;border-bottom:1px solid #f1f3f5;text-align:left;vertical-align:top;}
   th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;}
@@ -61,6 +61,7 @@
   .src{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.7;}
   .src a{color:var(--blue);text-decoration:none;}
   .tbd{color:var(--amber);font-weight:600;}
+  .warn{background:var(--red-bg);padding:8px 12px;border-left:3px solid var(--red);margin:8px 0;font-size:12.5px;line-height:1.6;color:#7f1d1d;}
   footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center;line-height:1.7;}
 </style>
 </head>
@@ -70,17 +71,18 @@
   <header>
     <a class="back-link" href="./index.html">← 志望校ダッシュボードに戻る</a>
     <h1>通学時間 比較（自宅 → 各校）</h1>
-    <div class="meta">起点：横浜市港北区新吉田東7丁目の自宅　｜　平日朝ラッシュ時（7時台出発）想定　｜　最終更新：2026年7月19日</div>
+    <div class="meta">起点：横浜市港北区新吉田東7丁目の自宅（東急バス利用）　｜　平日朝ラッシュ時（7時台出発）想定　｜　最終更新：2026年7月19日（バス前提に改訂）</div>
   </header>
 
   <div class="caveat">
-    <b>シミュレーションの前提</b>
+    <b>シミュレーションの前提（バス利用ベース）</b>
     <ul>
-      <li><b>「始業20分前に学校到着」から逆算して「家を出る時刻」を算出</b>しています。基準は各校の登校時刻・朝のHR/SHR時刻のうち、朝いちばんに拘束される時刻です。</li>
-      <li>駅までは<b>徒歩</b>を想定：高田駅（グリーンライン）まで約13分、綱島駅（東横線）まで約22分、新綱島駅まで約20分。自転車を使えば高田駅は約5分、綱島駅は約10分に短縮できます（駐輪場は要確認）。</li>
-      <li>電車の所要時間は<b>平日朝7時台の実態</b>（ラッシュによる+α含む）で見積もり、所要時間は安全側（長め）の値を採用しています。</li>
-      <li>始業時刻を公式サイトで公表していない学校は、学校情報サイト等の情報を仮置きし<span class="tbd">【要確認】</span>を付けています。<b>説明会や見学時に必ず確認してください。</b></li>
-      <li>所要時間は乗換案内の机上計算です。実際の受験判断の前に、平日朝に一度<b>実際に乗って試す</b>ことを強くおすすめします。</li>
+      <li><b>自宅近くの東急バス停「新吉田町」を起点</b>とし、バスで<b>綱島駅（東急東横線）</b>または<b>新羽駅（市営地下鉄ブルーライン）</b>に出る前提です（バス停まで徒歩約3分は概算、実距離は要確認）。綱島駅ゆきは綱71・綱72系統、新羽駅・新横浜駅ゆきは綱72系統（新羽駅経由）で、いずれも東急バスの公式時刻表で確認済みです。所要時間は綱島駅まで約6〜7分・新羽駅まで約12〜13分。</li>
+      <li><b>バスの本数に注意：</b>平日朝7時台、綱島駅方面（綱71・72計）は<b>毎時7本</b>と使いやすい一方、<b>新羽駅方面（綱72のみ）は毎時2本</b>（7:21・7:42発）と少なめのため、時刻表に合わせて乗る前提です。新羽経由ルートは乗り遅れリスクを見込み、時刻表の確認を強くおすすめします。</li>
+      <li><b>「始業20分前に学校到着」から逆算して「家を出る時刻」を算出</b>。基準は各校の登校・朝のHR/SHR時刻のうち朝いちばんに拘束される時刻です。</li>
+      <li>電車の所要時間は平日朝7時台の実態（ラッシュ+α含む）で見積もり、安全側（長め）の値を採用しています。</li>
+      <li>始業時刻が公式未公表の学校は仮置きし<span class="tbd">【要確認】</span>を付けています。説明会等で必ず確認してください。</li>
+      <li>実際の受験判断の前に、平日朝に一度<b>実際に乗って試す</b>ことをおすすめします。</li>
     </ul>
   </div>
 
@@ -91,213 +93,224 @@
       <th>順</th><th>学校</th><th>door-to-door</th><th>乗換</th><th>基準時刻（朝）</th><th>20分前着</th><th>家を出る時刻</th><th class="route-cell">主ルート</th>
     </tr>
     <tr>
-      <td><span class="rank-num">1</span></td><td><b>中央大学附属横浜</b></td>
-      <td><b>約30分</b></td><td>0回</td><td>8:30 HR <span class="tbd">【要確認】</span></td><td>8:10</td><td class="depart-time">7:40</td>
-      <td class="route-cell">徒歩→高田→グリーンライン3駅→センター北→徒歩7分</td>
+      <td><span class="rank-num">1</span></td><td><b>法政大学第二</b></td>
+      <td><b>約30分</b></td><td>バス→電車</td><td>8:40 登校 <span class="tbd">【要確認】</span></td><td>8:20</td><td class="depart-time">7:50</td>
+      <td class="route-cell">バス→綱島→東横線各停2駅→元住吉→徒歩10分</td>
     </tr>
     <tr>
-      <td><span class="rank-num">2</span></td><td><b>川和</b></td>
-      <td><b>約43分</b></td><td>0回</td><td>8:40 SHR <span class="tbd">【要確認】</span></td><td>8:20</td><td class="depart-time">7:37</td>
-      <td class="route-cell">徒歩→高田→グリーンライン6駅→川和町→徒歩15分（上り坂）</td>
+      <td><span class="rank-num">2</span></td><td><b>中央大学附属横浜</b></td>
+      <td><b>約35分</b></td><td>バス→電車</td><td>8:30 HR <span class="tbd">【要確認】</span></td><td>8:10</td><td class="depart-time">7:35</td>
+      <td class="route-cell">バス→新羽→ブルーライン3駅→センター北→徒歩7分</td>
     </tr>
     <tr>
-      <td><span class="rank-num">3</span></td><td><b>法政大学第二</b></td>
-      <td><b>約45分</b></td><td>0回</td><td>8:40 登校 <span class="tbd">【要確認】</span></td><td>8:20</td><td class="depart-time">7:35</td>
-      <td class="route-cell">徒歩→綱島→東横線2駅→元住吉→徒歩10分</td>
+      <td><span class="rank-num">3</span></td><td><b>横浜翠嵐</b></td>
+      <td><b>約45分</b></td><td>バス→電車</td><td>8:35 着席 <span class="tbd">【要確認】</span></td><td>8:15</td><td class="depart-time">7:30</td>
+      <td class="route-cell">バス→新羽→ブルーライン直通6駅→三ツ沢下町→徒歩12分</td>
     </tr>
     <tr>
-      <td><span class="rank-num">4</span></td><td><b>横浜翠嵐</b></td>
-      <td><b>約55分</b></td><td>1回</td><td>8:35 着席 <span class="tbd">【要確認】</span></td><td>8:15</td><td class="depart-time">7:20</td>
-      <td class="route-cell">徒歩→高田→グリーンライン→センター南→ブルーライン→三ツ沢下町→徒歩12分</td>
+      <td><span class="rank-num">4</span></td><td><b>川和</b></td>
+      <td><b>約45分</b></td><td>バス→電車＋乗換1</td><td>8:40 SHR <span class="tbd">【要確認】</span></td><td>8:20</td><td class="depart-time">7:35</td>
+      <td class="route-cell">バス→新羽→ブルーライン→センター南→グリーンライン→川和町→徒歩15分（坂）</td>
     </tr>
     <tr>
       <td><span class="rank-num">5</span></td><td><b>朋優学院</b></td>
-      <td><b>約60分</b></td><td>1回</td><td>8:30 登校 <span class="tbd">【要確認】</span></td><td>8:10</td><td class="depart-time">7:10</td>
-      <td class="route-cell">徒歩→綱島→東横線→自由が丘→大井町線→荏原町→徒歩9分</td>
+      <td><b>約50分</b></td><td>バス→電車＋乗換1</td><td>8:30 登校 <span class="tbd">【要確認】</span></td><td>8:10</td><td class="depart-time">7:20</td>
+      <td class="route-cell">バス→綱島→東横線急行→自由が丘→大井町線→荏原町→徒歩9分</td>
     </tr>
     <tr>
       <td><span class="rank-num">6</span></td><td><b>桐蔭学園</b></td>
-      <td><b>約65分</b></td><td>2回＋バス</td><td>8:25 朝HR</td><td>8:05</td><td class="depart-time">7:00</td>
-      <td class="route-cell">徒歩→高田→グリーンライン→センター南→ブルーライン→あざみ野→バス15〜20分</td>
+      <td><b>約55分</b></td><td>バス→電車→バス</td><td>8:25 朝HR</td><td>8:05</td><td class="depart-time">7:10</td>
+      <td class="route-cell">バス→新羽→ブルーライン直通5駅→あざみ野→東急バス15〜20分</td>
     </tr>
     <tr>
       <td><span class="rank-num">7</span></td><td><b>東京学芸大附属</b></td>
-      <td><b>約66分</b></td><td>0回</td><td><b>8:20 登校</b>（公式）</td><td>8:00</td><td class="depart-time">6:54</td>
-      <td class="route-cell">徒歩→綱島→東横線急行→学芸大学→徒歩15分</td>
+      <td><b>約55分</b></td><td>バス→電車</td><td><b>8:20 登校</b>（公式）</td><td>8:00</td><td class="depart-time">7:05</td>
+      <td class="route-cell">バス→綱島→東横線急行 約25分→学芸大学→徒歩15分</td>
     </tr>
     <tr>
       <td><span class="rank-num">8</span></td><td><b>山手学院</b></td>
-      <td><b>約80分</b></td><td>1回</td><td>8:40 登校 <span class="tbd">【要確認】</span></td><td>8:20</td><td class="depart-time">7:00</td>
-      <td class="route-cell">徒歩→綱島→東横線→横浜→JR根岸線→港南台→徒歩12分</td>
+      <td><b>約70分</b></td><td>バス→電車＋乗換1</td><td>8:40 登校 <span class="tbd">【要確認】</span></td><td>8:20</td><td class="depart-time">7:10</td>
+      <td class="route-cell">バス→綱島→東横線急行→横浜→JR根岸線→港南台→徒歩12分</td>
     </tr>
   </table>
   </div>
-  <div class="note">「家を出る時刻」＝ 基準時刻の20分前 − door-to-door所要時間。所要時間は朝ラッシュ考慮の安全側見積もり。最も早起きが必要なのは学芸大附属（6:54）、最も遅くて済むのは中大横浜（7:40）で、<b>差は約46分／日（往復で約1.5時間）</b>です。</div>
+  <div class="note">「家を出る時刻」＝ 基準時刻の20分前 − door-to-door所要時間（バス待ち時間込みの安全側見積もり）。バス利用により前回の徒歩前提から全校で5〜15分短縮されました。最も早起きが必要なのは学芸大附属（7:05）、最も余裕があるのは法政二（7:50）です。</div>
+
+  <h2>バスがもたらす3つの変化</h2>
+  <div class="card">
+    <table>
+      <tr><th>変化</th><th>内容</th></tr>
+      <tr><td><b>① 新羽駅＝ブルーライン直通が使える</b></td><td>翠嵐（三ツ沢下町）・桐蔭（あざみ野）・中大横浜（センター北）へ<b>電車1本</b>で行けるようになり、翠嵐は前回比10分短縮（乗換も解消）。ただし新羽方面のバスは毎時2〜3本のため、決まった便に乗る運用が前提。</td></tr>
+      <tr><td><b>② 綱島駅への徒歩22分がバス6分に</b></td><td>東横線利用の4校（法政二・朋優・学芸大附属・山手）で一律10分前後の短縮。綱島方面はバス高頻度（毎時7本超）で使い勝手も良い。雨の日の負担も大幅減。</td></tr>
+      <tr><td><b>③ 新横浜駅へも直通</b></td><td>綱72はそのまま新横浜駅まで行くため（新吉田町から約20分程度）、模試・遠征・新幹線利用時にも便利。</td></tr>
+    </table>
+  </div>
 
   <h2>学校別の詳細</h2>
 
   <div class="card">
     <div class="card-head">
-      <h3 class="school-name">1. 中央大学附属横浜高等学校</h3>
-      <div class="badges"><span class="badge private">私立</span><span class="badge time-short">約30分・乗換0</span></div>
+      <h3 class="school-name">1. 法政大学第二高等学校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge time-short">約30分</span></div>
     </div>
     <div class="sub">
-      <span class="route-step">自宅</span><span class="arrow">→徒歩13分→</span><span class="route-step">高田駅</span><span class="arrow">→グリーンライン(中山方面)3駅 約7分→</span><span class="route-step">センター北駅</span><span class="arrow">→徒歩7分→</span><span class="route-step">学校</span>
+      <span class="route-step">自宅</span><span class="arrow">→徒歩3分→</span><span class="route-step">バス停</span><span class="arrow">→綱72等 約6分→</span><span class="route-step">綱島駅</span><span class="arrow">→東横線各停2駅 約5分→</span><span class="route-step">元住吉駅</span><span class="arrow">→徒歩10分→</span><span class="route-step">学校</span>
+    </div>
+    <table>
+      <tr><th>項目</th><th>内容</th></tr>
+      <tr><td>所在地・最寄り</td><td>川崎市中原区木月大町6-1／元住吉駅 徒歩約10分・武蔵小杉駅 徒歩10分（公式）</td></tr>
+      <tr><td>朝の基準時刻</td><td>8:40 登校（学校情報サイト情報・要確認）</td></tr>
+      <tr><td>シミュレーション</td><td>8:20着 → <b>7:50に家を出る</b>（8校中最も余裕）</td></tr>
+      <tr><td>混雑・遅延</td><td>綱島方面バスは高頻度で待ち時間リスク小。東横線乗車は2駅・約5分のみ</td></tr>
+    </table>
+    <div class="note">バス前提では8校中最短に。電車乗車時間わずか5分で、通学負担は非常に軽い。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3 class="school-name">2. 中央大学附属横浜高等学校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge time-short">約35分</span></div>
+    </div>
+    <div class="sub">
+      <span class="route-step">自宅</span><span class="arrow">→徒歩3分→</span><span class="route-step">バス停</span><span class="arrow">→綱72 約12分→</span><span class="route-step">新羽駅</span><span class="arrow">→ブルーライン(あざみ野方面)3駅 約6分→</span><span class="route-step">センター北駅</span><span class="arrow">→徒歩7分→</span><span class="route-step">学校</span>
     </div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
       <tr><td>所在地・最寄り</td><td>都筑区牛久保東1-14-1／センター北駅 徒歩7分（学校公表値）</td></tr>
       <tr><td>朝の基準時刻</td><td>8:30 HR（学校情報サイト情報・要確認）</td></tr>
-      <tr><td>シミュレーション</td><td>8:10着 → <b>7:40に家を出る</b></td></tr>
-      <tr><td>混雑・遅延</td><td>グリーンラインは中山方面（逆ラッシュ方向）で空いており、定時性も非常に高い。8校中で圧倒的に楽</td></tr>
+      <tr><td>シミュレーション</td><td>8:10着 → <b>7:35に家を出る</b></td></tr>
+      <tr><td>混雑・遅延</td><td>ブルーライン逆ラッシュ方向で快適・定時性高い。新羽方面バスの本数だけ注意（毎時2〜3本）</td></tr>
     </table>
-    <div class="note">通学負担は8校中最小。自転車で高田駅まで行けばdoor-to-door約22分も可能です。</div>
+    <div class="note">新羽方面バスの本数が少ないため、乗り遅れた場合は綱島→グリーンライン日吉経由等の代替も確認しておくと安心です。</div>
   </div>
 
   <div class="card">
     <div class="card-head">
-      <h3 class="school-name">2. 川和高等学校</h3>
-      <div class="badges"><span class="badge public">県立</span><span class="badge time-short">約43分・乗換0</span></div>
+      <h3 class="school-name">3. 横浜翠嵐高等学校</h3>
+      <div class="badges"><span class="badge public">県立</span><span class="badge time-mid">約45分</span></div>
     </div>
     <div class="sub">
-      <span class="route-step">自宅</span><span class="arrow">→徒歩13分→</span><span class="route-step">高田駅</span><span class="arrow">→グリーンライン(中山方面)6駅 約13分→</span><span class="route-step">川和町駅</span><span class="arrow">→徒歩15分(上り坂)→</span><span class="route-step">学校</span>
-    </div>
-    <table>
-      <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>所在地・最寄り</td><td>都筑区川和町2226-1／川和町駅 徒歩約15分（丘の上の校舎への上り坂あり）。都筑ふれあいの丘駅からも徒歩15分</td></tr>
-      <tr><td>朝の基準時刻</td><td>8:40 SHR・1限8:50（学校情報サイト情報・要確認）</td></tr>
-      <tr><td>シミュレーション</td><td>8:20着 → <b>7:37に家を出る</b></td></tr>
-      <tr><td>混雑・遅延</td><td>グリーンライン1本・逆ラッシュ方向で快適。定時性も高い。最後の上り坂だけは毎日のこととして覚悟</td></tr>
-    </table>
-    <div class="note">乗換なしで通える県立トップ校。通学面では非常に相性が良い選択肢です。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-head">
-      <h3 class="school-name">3. 法政大学第二高等学校</h3>
-      <div class="badges"><span class="badge private">私立</span><span class="badge time-short">約45分・乗換0</span></div>
-    </div>
-    <div class="sub">
-      <span class="route-step">自宅</span><span class="arrow">→徒歩22分→</span><span class="route-step">綱島駅</span><span class="arrow">→東横線(各停)2駅 約5分→</span><span class="route-step">元住吉駅</span><span class="arrow">→徒歩10分→</span><span class="route-step">学校</span>
-    </div>
-    <table>
-      <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>所在地・最寄り</td><td>川崎市中原区木月大町6-1／武蔵小杉駅 徒歩10分（公式）・元住吉駅 徒歩約10分</td></tr>
-      <tr><td>朝の基準時刻</td><td>8:40 登校（学校情報サイト情報・要確認）</td></tr>
-      <tr><td>シミュレーション</td><td>8:20着 → <b>7:35に家を出る</b></td></tr>
-      <tr><td>代替ルート</td><td>高田→グリーンライン→日吉→東横線 も可（徒歩が短い分、乗換1回増）。自転車で綱島駅なら約10分短縮</td></tr>
-      <tr><td>混雑・遅延</td><td>東横線上りは朝混むが乗車2駅・約5分のみ。負担は小さい</td></tr>
-    </table>
-    <div class="note">電車に乗っている時間が最短（約5分）。実質的には「徒歩が長い近所の学校」という感覚に近い通学です。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-head">
-      <h3 class="school-name">4. 横浜翠嵐高等学校</h3>
-      <div class="badges"><span class="badge public">県立</span><span class="badge time-mid">約55分・乗換1</span></div>
-    </div>
-    <div class="sub">
-      <span class="route-step">自宅</span><span class="arrow">→徒歩13分→</span><span class="route-step">高田駅</span><span class="arrow">→グリーンライン約8分→</span><span class="route-step">センター南駅</span><span class="arrow">→ブルーライン(湘南台方面)約16分→</span><span class="route-step">三ツ沢下町駅</span><span class="arrow">→徒歩12分→</span><span class="route-step">学校</span>
+      <span class="route-step">自宅</span><span class="arrow">→徒歩3分→</span><span class="route-step">バス停</span><span class="arrow">→綱72 約12分→</span><span class="route-step">新羽駅</span><span class="arrow">→ブルーライン(湘南台方面)直通6駅 約12分→</span><span class="route-step">三ツ沢下町駅</span><span class="arrow">→徒歩12分→</span><span class="route-step">学校</span>
     </div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
       <tr><td>所在地・最寄り</td><td>神奈川区三ツ沢南町1-1／三ツ沢下町駅 徒歩12分・横浜駅西口 徒歩20分またはバス10分（公式）</td></tr>
       <tr><td>朝の基準時刻</td><td>8:35 着席・8:40 SHR（学校情報サイト情報・要確認）</td></tr>
-      <tr><td>シミュレーション</td><td>8:15着 → <b>7:20に家を出る</b></td></tr>
-      <tr><td>代替ルート</td><td>綱島→東横線→横浜→徒歩20分（約58〜62分）。横浜駅の人混みを毎日歩くことになるため、地下鉄経由を主ルートとして推奨</td></tr>
-      <tr><td>混雑・遅延</td><td>市営地下鉄2線のみで完結し、定時性が高く遅延に強い。混雑も中程度</td></tr>
+      <tr><td>シミュレーション</td><td>8:15着 → <b>7:30に家を出る</b></td></tr>
+      <tr><td>ルートの改善</td><td>前回（高田→グリーンライン→センター南乗換）比で<b>10分短縮＋乗換解消</b>。新羽からブルーライン1本で三ツ沢下町へ</td></tr>
+      <tr><td>混雑・遅延</td><td>地下鉄のみで完結し遅延に強い。新羽方面バスの本数（毎時2〜3本）だけ計画的に</td></tr>
     </table>
-    <div class="note">1時間弱ですが、地下鉄完結ルートのため「読める」通学。遅延リスクの低さは受験当日にも効きます。</div>
+    <div class="note">バス前提の最大の受益校。県内トップ校に45分・実質乗換なしで通えるのは大きな強みです。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3 class="school-name">4. 川和高等学校</h3>
+      <div class="badges"><span class="badge public">県立</span><span class="badge time-mid">約45分</span></div>
+    </div>
+    <div class="sub">
+      <span class="route-step">自宅</span><span class="arrow">→徒歩3分→</span><span class="route-step">バス停</span><span class="arrow">→綱72 約12分→</span><span class="route-step">新羽駅</span><span class="arrow">→ブルーライン2駅 約4分→</span><span class="route-step">センター南駅</span><span class="arrow">→グリーンライン2駅 約4分→</span><span class="route-step">川和町駅</span><span class="arrow">→徒歩15分(上り坂)→</span><span class="route-step">学校</span>
+    </div>
+    <table>
+      <tr><th>項目</th><th>内容</th></tr>
+      <tr><td>所在地・最寄り</td><td>都筑区川和町2226-1／川和町駅 徒歩約15分（上り坂）・都筑ふれあいの丘駅 徒歩15分</td></tr>
+      <tr><td>朝の基準時刻</td><td>8:40 SHR・1限8:50（学校情報サイト情報・要確認）</td></tr>
+      <tr><td>シミュレーション</td><td>8:20着 → <b>7:35に家を出る</b></td></tr>
+      <tr><td>代替ルート</td><td>高田駅まで徒歩（約13分）ならグリーンライン1本・乗換なしで川和町へ（約43分）。バスと徒歩でほぼ互角なので、天候や時間帯で使い分け可能</td></tr>
+      <tr><td>混雑・遅延</td><td>いずれのルートも逆ラッシュ方向で快適・定時性良好</td></tr>
+    </table>
+    <div class="note">バス経由でも徒歩＋グリーンライン経由でも約45分。2ルート持てる冗長性はむしろ強みです。</div>
   </div>
 
   <div class="card">
     <div class="card-head">
       <h3 class="school-name">5. 朋優学院高等学校</h3>
-      <div class="badges"><span class="badge private">私立</span><span class="badge time-mid">約60分・乗換1</span></div>
+      <div class="badges"><span class="badge private">私立</span><span class="badge time-mid">約50分</span></div>
     </div>
     <div class="sub">
-      <span class="route-step">自宅</span><span class="arrow">→徒歩22分→</span><span class="route-step">綱島駅</span><span class="arrow">→東横線急行 約11分→</span><span class="route-step">自由が丘駅</span><span class="arrow">→大井町線 約10分→</span><span class="route-step">荏原町駅</span><span class="arrow">→徒歩9分→</span><span class="route-step">学校</span>
+      <span class="route-step">自宅</span><span class="arrow">→徒歩3分→</span><span class="route-step">バス停</span><span class="arrow">→綱72等 約6分→</span><span class="route-step">綱島駅</span><span class="arrow">→東横線急行 約11分→</span><span class="route-step">自由が丘駅</span><span class="arrow">→大井町線 約10分→</span><span class="route-step">荏原町駅</span><span class="arrow">→徒歩9分→</span><span class="route-step">学校</span>
     </div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
       <tr><td>所在地・最寄り</td><td>品川区西大井6-1-23／西大井駅 徒歩10分・荏原町駅 徒歩9分・中延駅 徒歩8分（公式）</td></tr>
       <tr><td>朝の基準時刻</td><td>8:30 登校（大学通信データ・要確認）</td></tr>
-      <tr><td>シミュレーション</td><td>8:10着 → <b>7:10に家を出る</b></td></tr>
-      <tr><td>代替ルート</td><td>綱島→武蔵小杉→JR横須賀線→西大井（約55分）。速いが武蔵小杉の乗換動線が朝は大混雑＋横須賀線は遅延多め。安定性では自由が丘経由を推奨</td></tr>
-      <tr><td>混雑・遅延</td><td>東横線上り急行は混雑区間。大井町線各停は比較的空いている</td></tr>
+      <tr><td>シミュレーション</td><td>8:10着 → <b>7:20に家を出る</b></td></tr>
+      <tr><td>代替ルート</td><td>綱島→武蔵小杉→JR横須賀線→西大井は速いが、武蔵小杉の乗換動線混雑＋横須賀線の遅延の多さから、安定性では自由が丘経由を推奨</td></tr>
+      <tr><td>混雑・遅延</td><td>東横線上り急行は混雑区間だが乗車11分。大井町線各停は比較的空いている</td></tr>
     </table>
-    <div class="note">都内通学ですが1時間圏内。ルートの選択肢が複数あるのは強みです。</div>
+    <div class="note">都内通学ながら50分圏内に。ルート選択肢が複数あるのも安心材料です。</div>
   </div>
 
   <div class="card">
     <div class="card-head">
       <h3 class="school-name">6. 桐蔭学園高等学校</h3>
-      <div class="badges"><span class="badge private">私立</span><span class="badge time-long">約65分・乗換2＋バス</span></div>
+      <div class="badges"><span class="badge private">私立</span><span class="badge time-long">約55分</span></div>
     </div>
     <div class="sub">
-      <span class="route-step">自宅</span><span class="arrow">→徒歩13分→</span><span class="route-step">高田駅</span><span class="arrow">→グリーンライン約4分→</span><span class="route-step">センター南駅</span><span class="arrow">→ブルーライン約8分→</span><span class="route-step">あざみ野駅</span><span class="arrow">→東急バス15〜20分→</span><span class="route-step">桐蔭学園前(構内)</span>
+      <span class="route-step">自宅</span><span class="arrow">→徒歩3分→</span><span class="route-step">バス停</span><span class="arrow">→綱72 約12分→</span><span class="route-step">新羽駅</span><span class="arrow">→ブルーライン直通5駅 約11分→</span><span class="route-step">あざみ野駅</span><span class="arrow">→東急バス15〜20分→</span><span class="route-step">桐蔭学園前(構内)</span>
     </div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>所在地・最寄り</td><td>青葉区鉄町1614／最寄り駅なし・全ルートバス利用（あざみ野15分・市が尾10分・青葉台15分・柿生15分）</td></tr>
+      <tr><td>所在地・最寄り</td><td>青葉区鉄町1614／最寄り駅なし・全ルートバス（あざみ野15分・市が尾10分・青葉台15分・柿生15分）</td></tr>
       <tr><td>朝の基準時刻</td><td>8:25頃 朝HR・1限8:45（公式「桐蔭生の1日」より）</td></tr>
-      <tr><td>シミュレーション</td><td>8:05着 → <b>7:00に家を出る</b></td></tr>
-      <tr><td>混雑・遅延</td><td>地下鉄区間は安定だが、<b>バスが道路渋滞の影響を受ける</b>のが最大の不確定要素。通学時間帯は増便・専用便あり。「桐蔭学園前」行なら構内着、「桐蔭学園入口」下車だと坂下から上り坂</td></tr>
+      <tr><td>シミュレーション</td><td>8:05着 → <b>7:10に家を出る</b></td></tr>
+      <tr><td>ルートの改善</td><td>新羽からブルーライン1本であざみ野へ（前回のセンター南乗換が解消）。約10分短縮</td></tr>
+      <tr><td>混雑・遅延</td><td>「自宅バス→電車→学校バス」とバス2本を挟む行程。桐蔭側のバスは渋滞影響あり（通学時間帯は増便）</td></tr>
     </table>
-    <div class="note">時間もさることながら「電車2本＋バス」という行程の複雑さが日々の負担になります。バスの実際の混み具合は見学時に確認を。</div>
+    <div class="warn">バス→電車→バスの3段行程は、それぞれの接続待ちが積み重なりやすい点に注意。見学時に朝の実走をおすすめします。</div>
   </div>
 
   <div class="card">
     <div class="card-head">
       <h3 class="school-name">7. 東京学芸大学附属高等学校</h3>
-      <div class="badges"><span class="badge national">国立</span><span class="badge time-long">約66分・乗換0（始業が早い）</span></div>
+      <div class="badges"><span class="badge national">国立</span><span class="badge time-long">約55分（始業が早い）</span></div>
     </div>
     <div class="sub">
-      <span class="route-step">自宅</span><span class="arrow">→徒歩22分→</span><span class="route-step">綱島駅</span><span class="arrow">→東横線急行(渋谷方面)約25分→</span><span class="route-step">学芸大学駅</span><span class="arrow">→徒歩15分→</span><span class="route-step">学校</span>
+      <span class="route-step">自宅</span><span class="arrow">→徒歩3分→</span><span class="route-step">バス停</span><span class="arrow">→綱72等 約6分→</span><span class="route-step">綱島駅</span><span class="arrow">→東横線急行(渋谷方面)約25分→</span><span class="route-step">学芸大学駅</span><span class="arrow">→徒歩15分→</span><span class="route-step">学校</span>
     </div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>所在地・最寄り</td><td>世田谷区下馬4-1-5／学芸大学駅 徒歩15分・三軒茶屋駅 徒歩20分・バス「学芸大学附属高校」下車（公式）</td></tr>
-      <tr><td>朝の基準時刻</td><td><b>8:20 登校・1限8:30</b>（公式「生徒の一日」に明記。8校中で最も早い）</td></tr>
-      <tr><td>シミュレーション</td><td>8:00着 → <b>6:54に家を出る</b>（8校中で最も早起きが必要）</td></tr>
-      <tr><td>混雑・遅延</td><td>東横線上り7時台は首都圏有数の混雑区間（祐天寺→中目黒 混雑率170%超）を約25分乗り通す。相鉄・副都心線直通の影響で遅延もやや多い</td></tr>
+      <tr><td>所在地・最寄り</td><td>世田谷区下馬4-1-5／学芸大学駅 徒歩15分・三軒茶屋駅 徒歩20分（公式）</td></tr>
+      <tr><td>朝の基準時刻</td><td><b>8:20 登校・1限8:30</b>（公式「生徒の一日」に明記。8校中最も早い）</td></tr>
+      <tr><td>シミュレーション</td><td>8:00着 → <b>7:05に家を出る</b>（8校中最も早い出発）</td></tr>
+      <tr><td>混雑・遅延</td><td>東横線上り7時台は首都圏有数の混雑区間（祐天寺→中目黒 混雑率170%超）を約25分乗り通す。直通運転の影響で遅延もやや多め</td></tr>
     </table>
-    <div class="note">所要時間は山手学院より短いものの、始業が早いため出発は最も早い6:54。「毎朝6時台に満員電車」が3年間続く点は家族でよく相談を。</div>
+    <div class="note">バスで10分強改善しましたが、それでも「7時過ぎ出発＋満員電車25分」が3年間続く点は変わりません。</div>
   </div>
 
   <div class="card">
     <div class="card-head">
       <h3 class="school-name">8. 山手学院高等学校</h3>
-      <div class="badges"><span class="badge private">私立</span><span class="badge time-long">約80分・乗換1</span></div>
+      <div class="badges"><span class="badge private">私立</span><span class="badge time-long">約70分</span></div>
     </div>
     <div class="sub">
-      <span class="route-step">自宅</span><span class="arrow">→徒歩22分→</span><span class="route-step">綱島駅</span><span class="arrow">→東横線急行 約14分→</span><span class="route-step">横浜駅</span><span class="arrow">→乗換8分→JR根岸線 約23分→</span><span class="route-step">港南台駅</span><span class="arrow">→徒歩12分→</span><span class="route-step">学校</span>
+      <span class="route-step">自宅</span><span class="arrow">→徒歩3分→</span><span class="route-step">バス停</span><span class="arrow">→綱72等 約6分→</span><span class="route-step">綱島駅</span><span class="arrow">→東横線急行 約14分→</span><span class="route-step">横浜駅</span><span class="arrow">→乗換8分→JR根岸線 約23分→</span><span class="route-step">港南台駅</span><span class="arrow">→徒歩12分→</span><span class="route-step">学校</span>
     </div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
       <tr><td>所在地・最寄り</td><td>栄区上郷町460／港南台駅（JR根岸線）徒歩12分（公式）</td></tr>
       <tr><td>朝の基準時刻</td><td>8:40 登校（学校情報サイト情報・要確認）</td></tr>
-      <tr><td>シミュレーション</td><td>8:20着 → <b>7:00に家を出る</b></td></tr>
-      <tr><td>代替ルート</td><td>グリーンライン→ブルーライン→上大岡→バス案は横浜経由より遅く、本数・確実性でも劣るため非推奨</td></tr>
-      <tr><td>混雑・遅延</td><td>横浜駅での乗換（構内移動が長い）が毎日発生。東横線は直通運転由来の遅延波及あり。根岸線は比較的安定</td></tr>
+      <tr><td>シミュレーション</td><td>8:20着 → <b>7:10に家を出る</b></td></tr>
+      <tr><td>代替ルート</td><td>新羽→ブルーライン→横浜→根岸線も可能だが所要はほぼ同等〜やや長い。綱島経由を推奨</td></tr>
+      <tr><td>混雑・遅延</td><td>横浜駅での長い構内乗換が毎日発生。東横線の遅延波及リスクあり。根岸線は比較的安定</td></tr>
     </table>
-    <div class="note">8校中最長の約80分・往復2時間半超。部活（サッカー部はK5で活発）との両立を考えると、通学負担は事前によく検討したいポイントです。</div>
+    <div class="note">バスで10分改善しても8校中最長の約70分・往復2時間超。部活との両立は事前によく検討を。</div>
   </div>
 
-  <h2>まとめ：通学負担の3グループ</h2>
+  <h2>まとめ：通学負担の3グループ（バス前提）</h2>
   <div class="card">
     <table>
       <tr><th>グループ</th><th>学校</th><th>特徴</th></tr>
-      <tr><td><b>〜45分（楽）</b></td><td>中大横浜・川和・法政二</td><td>乗換なし。日常の負担が小さく、部活や勉強との両立がしやすい</td></tr>
-      <tr><td><b>55〜65分（標準）</b></td><td>翠嵐・朋優・桐蔭</td><td>1時間前後。翠嵐は地下鉄完結で安定、桐蔭はバス利用が不確定要素</td></tr>
-      <tr><td><b>65分超（重い）</b></td><td>学芸大附属・山手学院</td><td>学芸大附属は早朝出発（6:54）＋ラッシュ直撃、山手学院は純粋に距離が長い（片道80分）</td></tr>
+      <tr><td><b>〜35分（楽）</b></td><td>法政二・中大横浜</td><td>バス＋電車数駅。日常負担が小さく部活・勉強との両立が容易</td></tr>
+      <tr><td><b>45〜50分（標準）</b></td><td>翠嵐・川和・朋優</td><td>翠嵐・川和は地下鉄系で安定。朋優は東横線ラッシュを短時間だけ通過</td></tr>
+      <tr><td><b>55分超（重い）</b></td><td>桐蔭・学芸大附属・山手学院</td><td>桐蔭はバス3段行程、学芸大附属は早朝出発＋ラッシュ直撃、山手は純粋に遠い（片道70分）</td></tr>
     </table>
-    <div class="note">通学時間は3年間×往復で効いてきます。片道30分差は3年間で約1,100時間（≒46日分）の差になります。</div>
+    <div class="note">前回の徒歩前提と比べ全校で5〜15分短縮。特に翠嵐は乗換なし45分となり、通学面でのハードルが大きく下がりました。</div>
   </div>
 
   <footer>
-    所要時間は平日朝ラッシュ時の机上見積もりです（2026年7月作成）。ダイヤ改正・バス便変更で変わります。<br>
-    始業時刻に<span class="tbd">【要確認】</span>が付いている学校は公式未公表のため、説明会・見学時に必ずご確認ください。<br>
+    バス情報：東急バス「新吉田町」バス停の公式時刻表を基に作成（綱71・綱72系統＝綱島駅約6〜7分、綱72系統＝新羽駅約12〜13分・新横浜駅まで直通）。綱島方面 毎時7本／新羽方面 毎時2本（平日7時台、時刻表確認済み）。<br>
+    所要時間は平日朝ラッシュ時の机上見積もりです（2026年7月作成）。ダイヤ改正・バス便変更で変わります。始業時刻の<span class="tbd">【要確認】</span>は説明会等でご確認ください。<br>
     このページは手動で作成・更新しています（自動監視の対象外）。
   </footer>
 
