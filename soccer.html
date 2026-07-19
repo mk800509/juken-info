@@ -9,6 +9,7 @@
     --purple:#7c3aed; --purple-bg:#f5f3ff;
     --green:#059669; --green-bg:#ecfdf5;
     --amber:#b45309; --amber-bg:#fffbeb;
+    --red:#b91c1c; --red-bg:#fee2e2;
     --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
   }
   *{box-sizing:border-box;}
@@ -35,30 +36,37 @@
   }
   .card-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
   .school-name{font-size:16px;font-weight:700;margin:0;}
-  .school-name a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted);}
   .badges{display:flex;gap:6px;flex-wrap:wrap;}
   .badge{font-size:11px;padding:2px 8px;border-radius:999px;font-weight:600;white-space:nowrap;}
   .badge.public{color:var(--blue);background:var(--blue-bg);}
   .badge.private{color:var(--purple);background:var(--purple-bg);}
   .badge.national{color:var(--green);background:var(--green-bg);}
-  .badge.strong{color:#9a3412;background:#ffedd5;}
+  .badge.tier-prince{color:#fff;background:#b91c1c;}
+  .badge.tier-k1{color:#b91c1c;background:#fee2e2;}
+  .badge.tier-mid{color:#1e40af;background:#dbeafe;}
+  .badge.tier-low{color:#374151;background:#f3f4f6;}
   .badge.location{color:#666;background:#f3f4f6;font-size:10px;}
-  .sub{font-size:12.5px;color:var(--muted);margin-bottom:8px;}
+  .sub{font-size:12.5px;color:var(--muted);margin-bottom:8px;line-height:1.6;}
   table{width:100%;border-collapse:collapse;font-size:13px;}
-  th,td{padding:6px 8px;border-bottom:1px solid #f1f3f5;text-align:left;}
+  th,td{padding:6px 8px;border-bottom:1px solid #f1f3f5;text-align:left;vertical-align:top;}
   th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;}
   tr:last-child td{border-bottom:none;}
   .overview-wrap{overflow-x:auto;}
-  table.overview{font-size:12.5px;width:100%;}
-  table.overview th{position:sticky;top:0;background:#fff;}
-  .level-k1{color:#b91c1c;font-weight:700;}
-  .level-k3{color:#2563eb;}
-  .level-k6{color:#6b7280;}
+  table.overview{font-size:12.5px;}
+  table.pyramid{font-size:12.5px;max-width:720px;}
+  table.pyramid td:first-child{white-space:nowrap;font-weight:600;}
+  .tier-label{display:inline-block;font-size:11px;font-weight:700;border-radius:4px;padding:1px 7px;margin-right:4px;}
+  .tl-1{color:#fff;background:#b91c1c;}
+  .tl-2{color:#b91c1c;background:#fee2e2;}
+  .tl-3{color:#1e40af;background:#dbeafe;}
+  .tl-4{color:#374151;background:#f3f4f6;}
+  .rank-num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;background:#111827;color:#fff;font-size:12px;font-weight:700;margin-right:8px;}
   .note{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.6;}
-  .src{font-size:11.5px;color:var(--muted);margin-top:6px;}
+  .src{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.7;}
   .src a{color:var(--blue);text-decoration:none;}
-  .achievement{background:#f0fdf4;padding:8px 12px;border-left:3px solid var(--green);margin:8px 0;font-size:12.5px;}
-  footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center;}
+  .achievement{background:#f0fdf4;padding:8px 12px;border-left:3px solid var(--green);margin:8px 0;font-size:12.5px;line-height:1.6;}
+  .correction{background:var(--red-bg);padding:8px 12px;border-left:3px solid var(--red);margin:8px 0;font-size:12.5px;line-height:1.6;color:#7f1d1d;}
+  footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center;line-height:1.7;}
 </style>
 </head>
 <body>
@@ -67,175 +75,254 @@
   <header>
     <a class="back-link" href="./index.html">← 志望校ダッシュボードに戻る</a>
     <h1>サッカー部の強さ比較</h1>
-    <div class="meta">各校公式サイト・神奈川県サッカー協会のデータを基に作成　｜　最終更新：2026年7月19日（試作版）</div>
+    <div class="meta">神奈川県サッカー協会・東京都ユースサッカー連盟等の公式リーグ表を直接確認して作成　｜　最終更新：2026年7月19日</div>
   </header>
 
   <div class="caveat">
-    <b>このページについて</b>
+    <b>この比較の前提と読み方</b>
     <ul>
-      <li><b>進学校としての特性:</b>比較対象の8校は進学校が中心で、サッカー強豪校として全国的に知られているのは一部です。プログラムの規模や重要度が進学校では異なる場合があります。</li>
-      <li><b>リーグ制度について:</b>高円宮杯U-18サッカーリーグは神奈川県内で複数のディビジョン（K1〜K7）に分かれており、K1がトップ、K6・K7が下位です。毎シーズン昇降格があります。</li>
-      <li><b>大会について:</b>全国高校選手権（12月〜1月）とインターハイ（8月）が高校サッカーの二大全国大会です。地域大会で勝ち上がった学校のみ全国大会に出場できます。</li>
-      <li><b>データの更新:</b>2026年度（令和8年度）シーズンのデータを中心に掲載しています。朋優学院は東京都所属のため神奈川県の競技連盟データには含まれません。</li>
+      <li><b>リーグ所属は2026年シーズンの公式リーグ表で確認済みです。</b>高円宮杯U-18リーグは実力別のピラミッド構造（下記参照）で、所属ディビジョンがチームの実力を最も客観的に示します。強豪校はA・B・Cと複数チームをリーグに参戦させており、<b>比較には各校トップ（A）チームの所属を使っています</b>。</li>
+      <li><b>東京の2校（学芸大附属・朋優学院）は東京都のリーグ体系（T1〜T5＋地区リーグ）に属し</b>、神奈川（K1〜K6）とは別体系です。神奈川相当レベルは規模の対応関係から推定したもので、あくまで参考値です。</li>
+      <li>順位・勝敗は2026年7月時点の途中経過を含みます。シーズン進行で変わります。</li>
+      <li>8校はいずれも進学校であり、サッカー推薦の有無・練習量・部の位置づけは大きく異なります。「強さ」はあくまで競技成績の比較です。</li>
     </ul>
   </div>
 
-  <h2>ひと目比較（リーグ成績）</h2>
+  <h2>前提知識：U-18リーグのピラミッド構造</h2>
+  <div class="card">
+  <table class="pyramid">
+    <tr><th>階層</th><th>リーグ</th><th>該当チーム</th></tr>
+    <tr><td><span class="tier-label tl-1">全国</span></td><td>プレミアリーグ（EAST/WEST）</td><td>―</td></tr>
+    <tr><td><span class="tier-label tl-1">関東</span></td><td>プリンスリーグ関東（1部・2部）</td><td><b>桐蔭学園A（1部）</b></td></tr>
+    <tr><td><span class="tier-label tl-2">県1部</span></td><td>神奈川 K1 ／ 東京 T1（各10チーム）</td><td><b>法政大学第二A</b>・桐蔭学園B（K1）</td></tr>
+    <tr><td><span class="tier-label tl-3">県2〜4部</span></td><td>K2〜K4 ／ T2〜T5</td><td><b>川和A（K4）</b>、法政二B（K2）</td></tr>
+    <tr><td><span class="tier-label tl-4">県5部以下</span></td><td>K5（8チーム×12組）・K6 ／ 東京は地区リーグ（8地区×1〜3部）</td><td><b>山手学院A・横浜翠嵐A（K5）</b>、<b>中大横浜（K6）</b>、川和B・桐蔭C（K5）、<b>学芸大附属（6地区2部）・朋優学院（4地区2部）</b></td></tr>
+  </table>
+  <div class="note">神奈川はK1〜K6まで全て県協会の一元管理。東京はT1〜T5（計100チーム）の下に8つの地区リーグ（各1部〜3部）がぶら下がる構造。昇降格は毎シーズンあり。</div>
+  </div>
+
+  <h2>総合比較（2026年シーズン・Aチーム基準）</h2>
   <div class="overview-wrap">
   <table class="overview">
     <tr>
-      <th>学校</th><th>所在地</th><th>リーグディビジョン</th><th>2026年の主な実績</th><th>全国大会出場</th>
+      <th>順</th><th>学校</th><th>所属リーグ（2026）</th><th>直近成績</th><th>直近の主要大会</th><th>全国大会実績</th>
     </tr>
-    <tr><td><b>法政大学第二</b></td><td>川崎市</td><td><span class="level-k1">K1（トップ）</span></td><td>K1 3位（2025年）・関東大会進出</td><td>あり</td></tr>
-    <tr><td><b>桐蔭学園</b></td><td>横浜市</td><td><span class="level-k3">K3（中位）</span></td><td>全国選手権出場・Interhi経験豊富</td><td>あり</td></tr>
-    <tr><td><b>川和</b></td><td>横浜市</td><td><span class="level-k3">K4/K5（中位）</span></td><td>K4・K5両ディビジョンで優勝実績</td><td>あり</td></tr>
-    <tr><td><b>東京学芸大附属</b></td><td>東京都</td><td>K2相当</td><td>2026 Interhi東京予選で好成績</td><td>あり</td></tr>
-    <tr><td><b>横浜翠嵐</b></td><td>横浜市</td><td><span class="level-k3">K5（中位下）</span></td><td>安定して県リーグに参加</td><td>まれ</td></tr>
-    <tr><td><b>山手学院</b></td><td>横浜市</td><td>K3以下</td><td>県内競技システムに参加</td><td>まれ</td></tr>
-    <tr><td><b>中央大学附属横浜</b></td><td>横浜市</td><td><span class="level-k6">K6（下位）</span></td><td>県内リーグ下位ディビジョン</td><td>なし</td></tr>
-    <tr><td><b>朋優学院</b></td><td>東京都</td><td>東京都システム</td><td>データ限定的</td><td>まれ</td></tr>
+    <tr>
+      <td><span class="rank-num">1</span></td><td><b>桐蔭学園</b></td>
+      <td><span class="tier-label tl-1">プリンス関東1部</span>県リーグより上位</td>
+      <td>2025年 5位 → 2026年 残留・中位</td>
+      <td>2026インターハイ神奈川予選 <b>準優勝</b>（決勝1-2桐光学園）／2025選手権神奈川予選ベスト4</td>
+      <td>インターハイ優勝1回（2011）・出場11回／選手権出場10回・3位1回（2002）</td>
+    </tr>
+    <tr>
+      <td><span class="rank-num">2</span></td><td><b>法政大学第二</b></td>
+      <td><span class="tier-label tl-2">K1</span>県1部</td>
+      <td>2025年 K1 3位 → 2026年 途中8位</td>
+      <td>2025年 関東大会出場（86年の歴史で初の予選突破）／2026インターハイ予選ベスト16</td>
+      <td>選手権出場歴あり／OBにJリーガー</td>
+    </tr>
+    <tr>
+      <td><span class="rank-num">3</span></td><td><b>川和</b></td>
+      <td><span class="tier-label tl-3">K4</span>県4部</td>
+      <td>2025年 K3で10位・降格 → 2026年 K4で3勝1分1敗</td>
+      <td>県内トーナメントは1次予選ブロック</td>
+      <td>なし</td>
+    </tr>
+    <tr>
+      <td><span class="rank-num">4</span></td><td><b>山手学院</b></td>
+      <td><span class="tier-label tl-4">K5</span>県5部</td>
+      <td>2026年 K5-F組 暫定<b>1位</b>（1勝1分）</td>
+      <td>県内トーナメントは予選ブロック</td>
+      <td>なし</td>
+    </tr>
+    <tr>
+      <td><span class="rank-num">5</span></td><td><b>東京学芸大附属</b></td>
+      <td><span class="tier-label tl-4">東京6地区2部</span>（K5〜K6相当と推定）</td>
+      <td>2026年 3勝3敗・中位</td>
+      <td>2026インターハイ東京予選で健闘（学習院に1-0など、1次トーナメント決勝で修徳に0-4）</td>
+      <td>なし（近年）</td>
+    </tr>
+    <tr>
+      <td><span class="rank-num">6</span></td><td><b>横浜翠嵐</b></td>
+      <td><span class="tier-label tl-4">K5</span>県5部</td>
+      <td>2026年 K5-L組 開幕1敗（暫定下位）</td>
+      <td>県内トーナメントは予選ブロック</td>
+      <td>なし</td>
+    </tr>
+    <tr>
+      <td><span class="rank-num">7</span></td><td><b>中央大学附属横浜</b></td>
+      <td><span class="tier-label tl-4">K6</span>県6部（最下層）</td>
+      <td>2026年 開幕2連勝（3-0、9-0）</td>
+      <td>目標は県ベスト8</td>
+      <td>なし</td>
+    </tr>
+    <tr>
+      <td><span class="rank-num">8</span></td><td><b>朋優学院</b></td>
+      <td><span class="tier-label tl-4">東京4地区2部</span>（K6相当以下と推定）</td>
+      <td>2026年 1勝3敗・9位/10チーム</td>
+      <td>2026インターハイ予選2回戦 0-8 岩倉／2025選手権1次予選 初戦敗退</td>
+      <td>なし</td>
+    </tr>
   </table>
   </div>
-  <div class="note">K1=トップ、K2〜K3=中上、K4〜K5=中位、K6〜K7=下位。毎シーズン昇降格制。</div>
+  <div class="note">順位づけの考え方：①Aチームの所属リーグ階層 → ②同階層内は直近のリーグ順位・大会成績、の順で判断。5位（学芸大附属）と6位（翠嵐）は僅差で、学芸大附属のインターハイ予選での勝ち上がり（トーナメントで格上に勝利）を加味しています。</div>
+
+  <h2>東京2校の「神奈川相当レベル」の推定根拠</h2>
+  <div class="card">
+    <div class="sub">
+      東京と神奈川はリーグ体系が別なので直接比較はできませんが、階層の深さから対応関係を推定できます。東京はT1〜T5（10+10+20+20+40＝計100チーム）が県リーグに相当し、その下に8つの地区リーグ（各1〜3部）があります。神奈川はK1〜K4（上位約60チーム）の下にK5（96チーム）・K6（多数）が続きます。規模感でいうと、<b>東京T5 ≒ 神奈川K4〜K5、東京の地区リーグ1部 ≒ K5、地区リーグ2部 ≒ K5下位〜K6</b>という対応になります。
+    </div>
+    <table>
+      <tr><th>学校</th><th>東京での所属</th><th>神奈川相当（推定）</th><th>根拠</th></tr>
+      <tr>
+        <td><b>東京学芸大附属</b></td>
+        <td>第6地区リーグ2部Bブロック（3勝3敗・中位）</td>
+        <td><b>K5〜K6相当</b>（トーナメント成績を加味するとK5上位程度）</td>
+        <td>リーグ階層上はK6相当だが、2026インターハイ予選で目黒に7-2、学習院に1-0と勝ち上がり、東京の強豪・修徳（T1級）に敗れるまで進んだ。一発勝負での勝負強さはリーグ所属より上。</td>
+      </tr>
+      <tr>
+        <td><b>朋優学院</b></td>
+        <td>第4地区ユースリーグ2部（1勝3敗・9位/10）</td>
+        <td><b>K6相当以下</b></td>
+        <td>地区2部で下位に沈み、トーナメントも初戦〜2回戦敗退が続く（2026インターハイ2回戦 0-8 岩倉）。競技実績としては8校中最下位と判断。</td>
+      </tr>
+    </table>
+    <div class="note">※注意：東京学芸大附属の情報として広く出回っている「gakugeisoccer」のサイトは<b>東京学芸大学（大学）のサッカー部</b>のもので、高校とは別組織です。本ページでは高校の地区リーグ公式記録を参照しています。</div>
+  </div>
 
   <h2>学校別の詳細</h2>
 
   <div class="card">
     <div class="card-head">
-      <h3 class="school-name">法政大学第二高等学校</h3>
-      <div class="badges"><span class="badge private">私立</span><span class="badge strong">強豪</span><span class="badge location">川崎市</span></div>
+      <h3 class="school-name">1. 桐蔭学園高等学校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge tier-prince">プリンス関東1部</span><span class="badge location">横浜市青葉区</span></div>
     </div>
-    <div class="sub">リーグ：高円宮杯U-18 K1（トップディビジョン）</div>
+    <div class="correction">【訂正】以前の版で「K3所属」と記載していましたが誤りでした。K3所属という情報はB・Cチームとの混同で、<b>トップチームは県リーグの上位にあたるプリンスリーグ関東1部</b>に所属しています。</div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>直近成績</td><td>2025 K1 3位　2024 K1 2位（準優勝）</td></tr>
-      <tr><td>大会成績</td><td>2025年に関東大会出場（26年ぶり）</td></tr>
-      <tr><td>部員数</td><td>～50名（推定）</td></tr>
-      <tr><td>施設</td><td>法政大学川崎総合グラウンド（人工芝）を共用</td></tr>
-      <tr><td>OB実績</td><td>Jリーグ選手輩出（富樫敦哉、高橋大海ほか）</td></tr>
+      <tr><td>Aチーム</td><td>プリンスリーグ関東1部（2025年5位、2026年残留・中位）。神奈川県内の高校ではトップクラス</td></tr>
+      <tr><td>B・Cチーム</td><td>BチームがK1（2026年途中5位）、CチームがK5-D組。3チームが県1部以上・県5部で戦う層の厚さ</td></tr>
+      <tr><td>2026インターハイ</td><td>神奈川県予選 準優勝（決勝で桐光学園に1-2）。8校中で断トツの成績</td></tr>
+      <tr><td>2025選手権</td><td>神奈川県予選ベスト4（準決勝で優勝校・日大藤沢に0-1）</td></tr>
+      <tr><td>歴代実績</td><td>インターハイ出場11回・優勝1回（2011年）・3位2回（1993・2005年）／全国選手権出場10回・3位1回（2002年）</td></tr>
     </table>
-    <div class="achievement">✓ <b>8年連続Kディビジョン上位</b> — 神奈川県の強豪校として定評がある</div>
-    <div class="achievement">✓ <b>進学保証</b> — 法政大学への推薦進学制度が利用可能</div>
-    <div class="note">同県内でも最高峰のプログラム。大学進学と競技のバランスを取れる進学校です。</div>
+    <div class="achievement">✓ 8校中唯一、県リーグを超えた関東リーグ（プリンス1部）で戦うチーム。全国レベルの強豪です。</div>
+    <div class="note">ただしAチームでの出場はセレクション上位層が中心。一般入部の場合はB・C チームからのスタートになる点は留意（それでもB=K1は県1部レベル）。</div>
+    <div class="src">出典: <a href="https://www.kanagawa-fa.gr.jp/cms/u18-league/2026/div1/" target="_blank">神奈川FA K1リーグ表</a>／<a href="https://www.jfa.jp/match/takamado_jfa_u18_prince2026/kanto/" target="_blank">JFAプリンスリーグ関東</a>／<a href="https://www.kanagawa-fa.gr.jp/cms/h-school/2026/inter-high/" target="_blank">2026インターハイ神奈川予選</a></div>
   </div>
 
   <div class="card">
     <div class="card-head">
-      <h3 class="school-name">桐蔭学園高等学校</h3>
-      <div class="badges"><span class="badge private">私立</span><span class="badge strong">強豪</span><span class="badge location">横浜市</span></div>
+      <h3 class="school-name">2. 法政大学第二高等学校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge tier-k1">K1（県1部）</span><span class="badge location">川崎市中原区</span></div>
     </div>
-    <div class="sub">リーグ：高円宮杯U-18 K3（中位）</div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>全国大会成績</td><td>選手権 10回出場・Interhi 11回出場</td></tr>
-      <tr><td>最高成績</td><td>Interhi 優勝（2011年）・3位（1993年、2005年）</td></tr>
-      <tr><td>2026年実績</td><td>全国選手権出場・2回戦敗退</td></tr>
-      <tr><td>施設</td><td>専用サッカーグラウンド完備</td></tr>
-      <tr><td>女子プログラム</td><td>2025年県内女子サッカー選手権優勝</td></tr>
+      <tr><td>Aチーム</td><td>K1（県1部・10チーム）。2024年2位 → 2025年3位 → 2026年途中8位（1勝2分2敗・消化1試合少）</td></tr>
+      <tr><td>Bチーム</td><td>K2所属（2026年途中最下位）。2チームが県1・2部という強豪体制</td></tr>
+      <tr><td>2025年の快挙</td><td>関東大会神奈川県予選を86年の歴史で初めて突破し、26年ぶりに関東大会出場</td></tr>
+      <tr><td>2026インターハイ</td><td>神奈川県予選ベスト16（川崎橘に0-1）</td></tr>
+      <tr><td>環境</td><td>法政大学川崎総合グラウンド（人工芝）を使用。OBにJリーガー（横浜FC・松本山雅など）</td></tr>
     </table>
-    <div class="achievement">✓ <b>2011年インターハイ全国優勝</b> — 神奈川県内でも有数の実績</div>
-    <div class="achievement">✓ <b>3コース制で多様なキャリアに対応</b> — 競技特化から進学重視まで柔軟</div>
-    <div class="note">歴史的な強豪校。現在はK3ですが、全国大会の常連で実力は高い。</div>
+    <div class="achievement">✓ 県1部に定着し優勝争いも経験。付属校なので「部活を頑張っても大学進学（法政大）が保証される」のは競技と進学の両立面で大きな強み。</div>
+    <div class="src">出典: <a href="https://www.kanagawa-fa.gr.jp/cms/u18-league/2026/div1/" target="_blank">神奈川FA K1リーグ表</a>／<a href="https://www.kanagawa-fa.gr.jp/cms/u18-league/club/hosei2/" target="_blank">同・法政二クラブページ</a>／<a href="https://www.townnews.co.jp/0206/2025/05/23/786091.html" target="_blank">タウンニュース（関東大会出場）</a></div>
   </div>
 
   <div class="card">
     <div class="card-head">
-      <h3 class="school-name">川和高等学校</h3>
-      <div class="badges"><span class="badge public">県立</span><span class="badge location">横浜市</span></div>
+      <h3 class="school-name">3. 川和高等学校</h3>
+      <div class="badges"><span class="badge public">県立</span><span class="badge tier-mid">K4（県4部）</span><span class="badge location">横浜市都筑区</span></div>
     </div>
-    <div class="sub">リーグ：高円宮杯U-18 K4・K5（両ディビジョン）</div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>リーグ実績</td><td>K4・K5の両ディビジョンで優勝経験あり</td></tr>
-      <tr><td>部員数</td><td>複数チーム構成で40名以上</td></tr>
-      <tr><td>特徴</td><td>公開Instagramで定期更新・情報発信が活発</td></tr>
-      <tr><td>参加大会</td><td>県大会・関東地域リーグに参加</td></tr>
+      <tr><td>Aチーム</td><td>K4（2026年途中3勝1分1敗と好位置）。2025年はK3に居たが10位で降格</td></tr>
+      <tr><td>Bチーム</td><td>K5-E組で暫定1位（2勝）。2チーム体制を維持</td></tr>
+      <tr><td>近年の推移</td><td>2024年にK4優勝→K3昇格→2025年降格、と3部・4部を行き来する実力帯</td></tr>
+      <tr><td>特徴</td><td>県立進学校としては部員数・活動量とも多く、SNS等での情報発信も活発</td></tr>
     </table>
-    <div class="achievement">✓ <b>県立進学校でありながら複数チーム体制</b> — 組織力が高い</div>
-    <div class="achievement">✓ <b>SNS運営が活発</b> — 試合情報や練習情報をオープンにしている</div>
-    <div class="note">県立校の中では比較的活発な活動をしている。進学成績も良好で文武両道が実践されている。</div>
+    <div class="achievement">✓ 県立進学校の中では上位の実力。「勉強も部活も」を志向する生徒が多く、K3復帰を狙える位置にいます。</div>
+    <div class="src">出典: <a href="https://www.kanagawa-fa.gr.jp/cms/u18-league/club/kawawa/" target="_blank">神奈川FA 川和クラブページ</a>／<a href="https://www.kanagawa-fa.gr.jp/cms/u18-league/2025/div3/" target="_blank">2025年K3リーグ表</a>／<a href="https://kawawa-football.jimdofree.com/" target="_blank">川和サッカー部公式サイト</a></div>
   </div>
 
   <div class="card">
     <div class="card-head">
-      <h3 class="school-name">東京学芸大学附属高等学校</h3>
-      <div class="badges"><span class="badge national">国立</span><span class="badge location">東京都（世田谷）</span></div>
+      <h3 class="school-name">4. 山手学院高等学校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge tier-low">K5（県5部）</span><span class="badge location">横浜市栄区</span></div>
     </div>
-    <div class="sub">リーグ：東京都のK2相当ディビジョン</div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>2026年実績</td><td>Interhi東京予選南地区で好成績・4-0、1-0勝利など</td></tr>
-      <tr><td>施設</td><td>複数練習グラウンド・専門的な環境</td></tr>
-      <tr><td>特徴</td><td>国立大学の附属校として充実した指導体制</td></tr>
-      <tr><td>進学</td><td>東京学芸大学および他大学への進学</td></tr>
+      <tr><td>Aチーム</td><td>K5-F組（8チーム×12組のうちの1組）。2026年途中、組の暫定1位（1勝1分）</td></tr>
+      <tr><td>位置づけ</td><td>18ある運動部の一つ。学校としてサッカーを特別強化はしていない</td></tr>
+      <tr><td>展望</td><td>組1位ならK4昇格の可能性あり</td></tr>
     </table>
-    <div class="note">東京都のリーグシステムに属するため、神奈川県との直接比較は困難。ただ2026年Interhi予選での成績から推察すると競争力は高い。</div>
+    <div class="note">県5部帯では好調なスタート。進学校の一般的な部活レベルとしては標準〜やや上位です。</div>
+    <div class="src">出典: <a href="https://www.kanagawa-fa.gr.jp/cms/u18-league/club/yamate-gakuin/" target="_blank">神奈川FA 山手学院クラブページ</a>／<a href="https://www.kanagawa-fa.gr.jp/cms/u18-league/2026/div5/" target="_blank">2026年K5リーグ表</a></div>
   </div>
 
   <div class="card">
     <div class="card-head">
-      <h3 class="school-name">横浜翠嵐高等学校</h3>
-      <div class="badges"><span class="badge public">県立</span><span class="badge location">横浜市</span></div>
+      <h3 class="school-name">5. 東京学芸大学附属高等学校</h3>
+      <div class="badges"><span class="badge national">国立</span><span class="badge tier-low">東京6地区2部（K5〜K6相当）</span><span class="badge location">東京都世田谷区</span></div>
     </div>
-    <div class="sub">リーグ：高円宮杯U-18 K5（中位下）</div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>リーグ実績</td><td>K5ディビジョンで継続的に参加・2次ラウンド進出</td></tr>
-      <tr><td>特徴</td><td>県立進学校で部活動も活発</td></tr>
-      <tr><td>トーナメント</td><td>関東高等学校サッカー記念大会等に参加</td></tr>
+      <tr><td>リーグ</td><td>東京・第6地区リーグ2部Bブロック（T5のさらに下の階層）。2026年3勝3敗の中位</td></tr>
+      <tr><td>2026インターハイ東京予選</td><td>健闘が目立つ：目黒に7-2、桜美林に2-1、学習院に1-0で勝ち上がり、1次トーナメントブロック決勝で強豪・修徳に0-4</td></tr>
+      <tr><td>2025選手権予選</td><td>1次予選2回戦で開成に1-2</td></tr>
+      <tr><td>神奈川相当</td><td>リーグ階層ではK6相当だが、トーナメントでの勝負強さを加味するとK5上位程度と推定</td></tr>
     </table>
-    <div class="note">県立進学校として安定したレベルを維持。全国大会出場は稀ですが県内での活動は活発です。</div>
+    <div class="note">リーグ所属は低い階層ながら、トーナメントでは格上相手にも競える。進学校の部活としては十分健闘している水準です。</div>
+    <div class="src">出典: <a href="https://sites.google.com/gakugei-hs.info/league6" target="_blank">第6地区リーグ公式記録</a>／<a href="https://koko-soccer.com/team/1634" target="_blank">高校サッカーdot com 試合記録</a>／<a href="https://www.tleague-u18.com/team.php?dy=2026" target="_blank">東京Tリーグ公式（T1〜T5に不在の確認）</a></div>
   </div>
 
   <div class="card">
     <div class="card-head">
-      <h3 class="school-name">山手学院高等学校</h3>
-      <div class="badges"><span class="badge private">私立</span><span class="badge location">横浜市</span></div>
+      <h3 class="school-name">6. 横浜翠嵐高等学校</h3>
+      <div class="badges"><span class="badge public">県立</span><span class="badge tier-low">K5（県5部）</span><span class="badge location">横浜市神奈川区</span></div>
     </div>
-    <div class="sub">リーグ：高円宮杯U-18 K3以下</div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>特徴</td><td>18の部活動がある総合進学校の一部</td></tr>
-      <tr><td>参加大会</td><td>県内リーグシステムに参加</td></tr>
-      <tr><td>位置づけ</td><td>進学重視の総合スポーツプログラムの一部</td></tr>
+      <tr><td>Aチーム</td><td>K5-L組。2026年は開幕戦を1-2で落とし暫定下位スタート</td></tr>
+      <tr><td>位置づけ</td><td>県内最難関の進学校であり、部活は勉強と両立する範囲での活動</td></tr>
     </table>
-    <div class="note">サッカー以外の運動部も充実している総合進学校。プログラムの詳細情報は限定的です。</div>
+    <div class="note">山手学院と同じK5帯ですが、2026年序盤の成績では山手学院が上回っています。</div>
+    <div class="src">出典: <a href="https://www.kanagawa-fa.gr.jp/cms/u18-league/2026/div5/" target="_blank">神奈川FA 2026年K5リーグ表</a>／<a href="https://www.pen-kanagawa.ed.jp/yokohamasuiran-h/zennichi/seikatsu/bukatu/soccer.html" target="_blank">翠嵐高校サッカー部ページ</a></div>
   </div>
 
   <div class="card">
     <div class="card-head">
-      <h3 class="school-name">中央大学附属横浜高等学校</h3>
-      <div class="badges"><span class="badge private">私立</span><span class="badge location">横浜市</span></div>
+      <h3 class="school-name">7. 中央大学附属横浜高等学校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge tier-low">K6（県6部）</span><span class="badge location">横浜市都筑区</span></div>
     </div>
-    <div class="sub">リーグ：高円宮杯U-18 K6（下位ディビジョン）</div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>部員数</td><td>～50名（2チーム体制）</td></tr>
-      <tr><td>リーグ成績</td><td>K6（下位）ディビジョン所属</td></tr>
-      <tr><td>目標</td><td>高校：県内ベスト8進出 / 中学：県大会参加</td></tr>
-      <tr><td>施設</td><td>Oonana グラウンド他を使用</td></tr>
-      <tr><td>特徴</td><td>部活動よりも進学・大学附属としてのキャリアを重視</td></tr>
+      <tr><td>チーム</td><td>K6（神奈川の最下層ディビジョン）。2026年は開幕2連勝（3-0、9-0）と好スタート</td></tr>
+      <tr><td>部の規模</td><td>部員約50名・マネージャー2名。学校目標は「県ベスト8」</td></tr>
+      <tr><td>位置づけ</td><td>内部進学（中央大学へ約8割）が主軸の学校で、部活は文武バランス型</td></tr>
     </table>
-    <div class="note">附属校として中央大学への進学が主軸。サッカーは課外活動として位置づけられている。</div>
+    <div class="note">神奈川6校の中では最も下の階層ですが、2026年は昇格を狙える滑り出しです。</div>
+    <div class="src">出典: <a href="https://www.kanagawa-fa.gr.jp/cms/u18-league/club/chuo-yokohama/" target="_blank">神奈川FA 中大横浜クラブページ</a>／<a href="https://www.yokohama-js.chuo-u.ac.jp/school-life/club/soccer/" target="_blank">学校公式サッカー部ページ</a></div>
   </div>
 
   <div class="card">
     <div class="card-head">
-      <h3 class="school-name">朋優学院高等学校</h3>
-      <div class="badges"><span class="badge private">私立</span><span class="badge location">東京都（品川）</span></div>
+      <h3 class="school-name">8. 朋優学院高等学校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge tier-low">東京4地区2部（K6相当以下）</span><span class="badge location">東京都品川区</span></div>
     </div>
-    <div class="sub">リーグ：東京都のサッカーリーグシステム</div>
     <table>
       <tr><th>項目</th><th>内容</th></tr>
-      <tr><td>特徴</td><td>東京都所属のため神奈川県データとは別体系</td></tr>
-      <tr><td>プログラム</td><td>公式サイトでの情報は限定的</td></tr>
-      <tr><td>進学重視</td><td>3コース制（国公立TG・国公立・特進）</td></tr>
+      <tr><td>リーグ</td><td>東京・第4地区ユースリーグ2部。2026年は1勝3敗で9位/10チーム</td></tr>
+      <tr><td>2026インターハイ予選</td><td>1回戦で武蔵野に2-0勝利後、2回戦で岩倉に0-8</td></tr>
+      <tr><td>2025選手権予選</td><td>1次予選1回戦で都立美原に0-1（初戦敗退）</td></tr>
+      <tr><td>神奈川相当</td><td>K6相当以下と推定。競技成績としては8校中最下位</td></tr>
     </table>
-    <div class="note">東京都内の学校のため神奈川県のリーグシステムには参加していません。野球や他のスポーツが学校の主軸です。</div>
+    <div class="note">学校として進学実績向上に注力しており、サッカー部は同好会に近い活動水準です。サッカー環境を重視する場合は他候補との差が大きい点に留意。</div>
+    <div class="src">出典: <a href="http://www.area4-youthleague.com/standings.html" target="_blank">第4地区ユースリーグ順位表</a>／<a href="https://koko-soccer.com/team/1856" target="_blank">高校サッカーdot com 試合記録</a></div>
   </div>
 
   <footer>
-    このページは試作版です。各校の公式サイト・神奈川県サッカー協会のデータを基に作成していますが、詳細は各校に直接お問い合わせください。フィードバックをお待ちしています。
+    リーグ所属・順位は神奈川県サッカー協会／東京都の各地区リーグ公式サイトを直接確認しています（2026年7月時点）。順位は途中経過を含み、今後変動します。<br>
+    このページは手動で作成・更新しています（自動監視の対象外）。進学判断の際は、部活動見学や説明会での確認をおすすめします。
   </footer>
 
 </div>
