@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>大学進学実績 比較｜志望校ダッシュボード</title>
+<style>
+  :root{
+    --blue:#2563eb; --blue-bg:#eff6ff;
+    --purple:#7c3aed; --purple-bg:#f5f3ff;
+    --green:#059669; --green-bg:#ecfdf5;
+    --amber:#b45309; --amber-bg:#fffbeb;
+    --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;
+    background:#f9fafb; color:var(--ink); margin:0; padding:24px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;}
+  header{margin-bottom:20px;}
+  h1{font-size:22px;margin:0 0 6px;}
+  h2{font-size:18px;margin:28px 0 10px;}
+  .meta{color:var(--muted);font-size:13px;}
+  .back-link{font-size:13px;color:var(--blue);text-decoration:none;}
+  .caveat{
+    background:var(--amber-bg);border:1px solid #fde68a;border-radius:10px;
+    padding:14px 16px;margin:16px 0 24px;font-size:13.5px;line-height:1.7;color:#78350f;
+  }
+  .caveat b{color:var(--amber);}
+  .caveat ul{margin:6px 0 0;padding-left:20px;}
+  .caveat li{margin:3px 0;}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.03); margin-bottom:16px;
+  }
+  .card-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+  .school-name{font-size:16px;font-weight:700;margin:0;}
+  .school-name a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted);}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;}
+  .badge{font-size:11px;padding:2px 8px;border-radius:999px;font-weight:600;white-space:nowrap;}
+  .badge.public{color:var(--blue);background:var(--blue-bg);}
+  .badge.private{color:var(--purple);background:var(--purple-bg);}
+  .badge.national{color:var(--green);background:var(--green-bg);}
+  .badge.fuzoku{color:#9a3412;background:#ffedd5;}
+  .badge.shingaku{color:#1e40af;background:#dbeafe;}
+  .sub{font-size:12.5px;color:var(--muted);margin-bottom:8px;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th,td{padding:6px 8px;border-bottom:1px solid #f1f3f5;text-align:right;white-space:nowrap;}
+  th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;text-align:right;}
+  th:first-child,td:first-child{text-align:left;white-space:normal;}
+  tr:last-child td{border-bottom:none;}
+  .rate{color:var(--muted);font-size:11px;}
+  .overview-wrap{overflow-x:auto;}
+  table.overview{font-size:12.5px;}
+  table.overview th{position:sticky;top:0;background:#fff;}
+  .note{font-size:12px;color:var(--muted);margin-top:8px;}
+  .src{font-size:11.5px;color:var(--muted);margin-top:6px;}
+  .src a{color:var(--blue);text-decoration:none;}
+  footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="back-link" href="./index.html">← 志望校ダッシュボードに戻る</a>
+    <h1>大学進学実績 比較</h1>
+    <div class="meta">各校公式サイトの合格実績・進路実績ページを基に作成　｜　最終更新：2026年7月19日（手動作成）</div>
+  </header>
+
+  <div class="caveat">
+    <b>この表を読むときの注意点</b>
+    <ul>
+      <li><b>「合格者数」と「進学者数」は別物です。</b>ほとんどの学校が公表しているのは合格者数（延べ数）で、1人が複数校に合格した分を重複カウントしている可能性があります。中央大学附属横浜の国公立進学・内部進学と、法政大学第二の全項目は、実際に進学した人数（進学者数）として公表されているものです。</li>
+      <li><b>卒業生数（学年の人数）が非公表の学校が多いです。</b>山手学院・中央大学附属横浜・法政大学第二（概算）以外の5校（翠嵐・川和・学芸大附属・桐蔭学園・朋優学院）は卒業生数を公式に公表していないため、比率（%）は計算できる学校のみ表示しています。</li>
+      <li><b>桐蔭学園のみ直近1年（2026年）分しか公式サイトに残っていません。</b>他校は2〜3年分の推移を掲載しています。</li>
+      <li>「GMARCH」の集計範囲（学習院を含むか等）は学校の公表方法によって微妙に異なります。各校セクションの注記をご確認ください。</li>
+    </ul>
+  </div>
+
+  <h2>ひと目比較（直近年度）</h2>
+  <div class="overview-wrap">
+  <table class="overview">
+    <tr>
+      <th>学校</th><th>年度</th><th>卒業生数</th><th>国公立</th><th>早稲田</th><th>慶應</th><th>上智</th><th>GMARCH</th><th>医学部医学科</th><th>附属内部進学</th>
+    </tr>
+    <tr><td>横浜翠嵐</td><td>'26卒</td><td>―</td><td>204</td><td>200</td><td>135</td><td>35</td><td>319</td><td>―</td><td>―</td></tr>
+    <tr><td>川和</td><td>'26卒</td><td>―</td><td>107</td><td>97</td><td>42</td><td>42</td><td>606</td><td>約4</td><td>―</td></tr>
+    <tr><td>東京学芸大附属</td><td>'26卒</td><td>―</td><td>―</td><td>108</td><td>95</td><td>32</td><td>274</td><td>―</td><td>―</td></tr>
+    <tr><td>中央大学附属横浜</td><td>'26卒</td><td>344</td><td>33<span class="rate">(9.6%)</span></td><td>12</td><td>17</td><td>7</td><td>46</td><td>―</td><td>267<span class="rate">(77.6%)</span></td></tr>
+    <tr><td>法政大学第二</td><td>'25卒</td><td>約631</td><td>8</td><td>9</td><td>11</td><td>2</td><td>16</td><td>1</td><td>551<span class="rate">(約87%)</span></td></tr>
+    <tr><td>山手学院</td><td>'26卒</td><td>443</td><td>117<span class="rate">(26.4%)</span></td><td>86<span class="rate">(19.4%)</span></td><td>50<span class="rate">(11.3%)</span></td><td>53<span class="rate">(12.0%)</span></td><td>582<span class="rate">(131%)</span></td><td>―</td><td>―</td></tr>
+    <tr><td>桐蔭学園</td><td>'26卒</td><td>―</td><td>126</td><td>57</td><td>47</td><td>30</td><td>513</td><td>24</td><td>―</td></tr>
+    <tr><td>朋優学院</td><td>'26卒</td><td>―</td><td>97<span class="rate">(現役91)</span></td><td>58</td><td>34</td><td>54</td><td>514</td><td>15</td><td>―</td></tr>
+  </table>
+  </div>
+  <div class="note">数値は原則「合格者数（延べ）」。中央大学附属横浜の国公立・内部進学、法政大学第二の全項目は実進学者数。比率(%)は卒業生数が公表されている学校のみ表示。「―」は非公表・データ不足。</div>
+
+  <h2>学校ごとの詳細（複数年推移）</h2>
+
+  <!-- SUIRAN -->
+  <div class="card">
+    <div class="card-head">
+      <h3 class="school-name">横浜翠嵐高校</h3>
+      <div class="badges"><span class="badge public">県立</span><span class="badge shingaku">進学校型</span></div>
+    </div>
+    <div class="sub">卒業生数は非公表。数値はすべて合格者数（延べ、現役+既卒）。</div>
+    <table>
+      <tr><th>年度</th><th>国公立</th><th>早稲田</th><th>慶應</th><th>上智</th><th>GMARCH計</th><th>医学部医学科</th></tr>
+      <tr><td>2026年3月卒(78期)</td><td>204</td><td>200</td><td>135</td><td>35</td><td>319</td><td>―</td></tr>
+      <tr><td>2025年3月卒(77期)</td><td>224</td><td>233</td><td>177</td><td>60</td><td>390</td><td>―</td></tr>
+    </table>
+    <div class="src">出典: <a href="https://www.pen-kanagawa.ed.jp/yokohamasuiran-h/zennichi/shinro/sinrojoukyou.html" target="_blank">進路状況ページ（PDF）</a></div>
+  </div>
+  <!-- /SUIRAN -->
+
+  <!-- KAWAWA -->
+  <div class="card">
+    <div class="card-head">
+      <h3 class="school-name">川和高校</h3>
+      <div class="badges"><span class="badge public">県立</span><span class="badge shingaku">進学校型</span></div>
+    </div>
+    <div class="sub">卒業生数は非公表。数値はすべて合格者数（延べ）。医学部医学科は「（医）」表記校の概算。</div>
+    <table>
+      <tr><th>年度</th><th>国公立</th><th>早稲田</th><th>慶應</th><th>上智</th><th>GMARCH計</th><th>医学部医学科</th></tr>
+      <tr><td>2026年3月卒</td><td>107</td><td>97</td><td>42</td><td>42</td><td>606</td><td>約4</td></tr>
+      <tr><td>2025年3月卒</td><td>108</td><td>88</td><td>40</td><td>46</td><td>556</td><td>約12</td></tr>
+    </table>
+    <div class="src">出典: <a href="https://www.pen-kanagawa.ed.jp/kawawa-h/shinro/124shinroitiran.html" target="_blank">進路一覧ページ（PDF）</a>　※2020〜2024年のPDFも同ページに保管されており、より長期の推移も確認可能</div>
+  </div>
+  <!-- /KAWAWA -->
+
+  <!-- GAKUGEI -->
+  <div class="card">
+    <div class="card-head">
+      <h3 class="school-name">東京学芸大学附属高校</h3>
+      <div class="badges"><span class="badge national">国立</span><span class="badge shingaku">進学校型</span></div>
+    </div>
+    <div class="sub">卒業生数・国公立合計・医学部医学科合計はPDFの表組みが複雑でうまく抽出できず、非公表として扱っています（個別の大学名は確認できたものの合計値の信頼性が担保できないため掲載を見送りました）。2025年3月卒の早稲田・GMARCHは概算値です。</div>
+    <table>
+      <tr><th>年度</th><th>早稲田</th><th>慶應</th><th>上智</th><th>学習院</th><th>明治</th><th>青山学院</th><th>立教</th><th>中央</th><th>法政</th><th>GMARCH計</th></tr>
+      <tr><td>2026年3月卒</td><td>108</td><td>95</td><td>32</td><td>9</td><td>96</td><td>45</td><td>26</td><td>57</td><td>41</td><td>274</td></tr>
+      <tr><td>2025年3月卒</td><td>約97</td><td>78</td><td>38</td><td>約10</td><td>82</td><td>23</td><td>33</td><td>50</td><td>33</td><td>約231</td></tr>
+    </table>
+    <div class="src">出典: <a href="https://www.gakugei-hs.setagaya.tokyo.jp/career/" target="_blank">進路状況ページ（PDF）</a></div>
+  </div>
+  <!-- /GAKUGEI -->
+
+  <!-- CHUO-YOKOHAMA -->
+  <div class="card">
+    <div class="card-head">
+      <h3 class="school-name">中央大学附属横浜高校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge fuzoku">附属型</span></div>
+    </div>
+    <div class="sub">中央大学の附属校で、卒業生の約8割が内部推薦で中央大学へ進学します。このため「合格実績」だけでなく、実際の進学先の内訳（実数・実進学者数）が公式に公表されている珍しい学校です。</div>
+    <table>
+      <tr><th></th><th>中央大内部進学</th><th>国公立大（実進学）</th><th>私大・他大学（実進学）</th><th>海外大</th><th>進学準備等</th></tr>
+      <tr><td>2025年度卒業生（卒業生数344）</td><td>267<span class="rate">(77.6%)</span></td><td>33<span class="rate">(9.6%)</span></td><td>35<span class="rate">(10.2%)</span></td><td>0<span class="rate">(0%)</span></td><td>9<span class="rate">(2.6%)</span></td></tr>
+    </table>
+    <div class="sub" style="margin-top:12px;">参考：中央大内部推薦を除く他大学の合格者数（延べ）</div>
+    <table>
+      <tr><th>年度</th><th>早稲田</th><th>慶應</th><th>上智</th><th>学習院</th><th>明治</th><th>青山学院</th><th>立教</th><th>法政</th><th>中央(一般)</th><th>GMARCH計(中央除く)</th></tr>
+      <tr><td>2026年3月卒</td><td>12</td><td>17</td><td>7</td><td>1</td><td>26</td><td>3</td><td>12</td><td>4</td><td>7</td><td>46</td></tr>
+      <tr><td>2025年3月卒</td><td>17</td><td>18</td><td>27</td><td>2</td><td>49</td><td>23</td><td>15</td><td>12</td><td>12</td><td>103</td></tr>
+    </table>
+    <div class="src">出典: <a href="https://www.yokohama-js.chuo-u.ac.jp/education/career/" target="_blank">進路状況ページ</a></div>
+  </div>
+  <!-- /CHUO-YOKOHAMA -->
+
+  <!-- HOSEI2 -->
+  <div class="card">
+    <div class="card-head">
+      <h3 class="school-name">法政大学第二高校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge fuzoku">附属型</span></div>
+    </div>
+    <div class="sub">法政大学の附属校。この学校の公表データは他校と異なり「合格者数」ではなく実際に進学した人数（進学者数）です。卒業生数・内部進学率は各年の内部進学者数＋他大学進学者数の合計から概算したもので、学校が直接公表している数値ではありません。</div>
+    <table>
+      <tr><th>年度</th><th>卒業生数(概算)</th><th>法政内部進学</th><th>国公立</th><th>早稲田</th><th>慶應</th><th>上智</th><th>GMARCH(他4校)</th><th>医学部医学科</th></tr>
+      <tr><td>2025年3月卒</td><td>約631</td><td>551<span class="rate">(約87%)</span></td><td>8</td><td>9</td><td>11</td><td>2</td><td>16</td><td>1</td></tr>
+      <tr><td>2024年3月卒</td><td>約623</td><td>552<span class="rate">(約89%)</span></td><td>10</td><td>2</td><td>8</td><td>1</td><td>12</td><td>1</td></tr>
+      <tr><td>2023年3月卒</td><td>約620</td><td>535<span class="rate">(約86%)</span></td><td>3</td><td>2</td><td>9</td><td>10</td><td>14</td><td>0</td></tr>
+    </table>
+    <div class="src">出典: <a href="https://www.hosei2.ed.jp/hs/result" target="_blank">進路実績ページ</a></div>
+  </div>
+  <!-- /HOSEI2 -->
+
+  <!-- YAMATE -->
+  <div class="card">
+    <div class="card-head">
+      <h3 class="school-name">山手学院高校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge shingaku">進学校型</span></div>
+    </div>
+    <div class="sub">卒業生数を公式に公表している数少ない学校の一つ。数値は合格者数（延べ、既卒含む）。MARCH計は2024・2025年は学習院を除く5校、2026年は学習院（29名）を含む6校合計です。</div>
+    <table>
+      <tr><th>年度</th><th>卒業生数</th><th>国公立</th><th>早稲田</th><th>慶應</th><th>上智</th><th>MARCH等計</th><th>うち法政</th></tr>
+      <tr><td>2026年3月卒</td><td>443</td><td>117<span class="rate">(26.4%)</span></td><td>86<span class="rate">(19.4%)</span></td><td>50<span class="rate">(11.3%)</span></td><td>53<span class="rate">(12.0%)</span></td><td>582<span class="rate">(131%・学習院含む6校)</span></td><td>101</td></tr>
+      <tr><td>2025年3月卒</td><td>494</td><td>113<span class="rate">(22.9%)</span></td><td>62<span class="rate">(12.6%)</span></td><td>39<span class="rate">(7.9%)</span></td><td>40<span class="rate">(8.1%)</span></td><td>538<span class="rate">(108.9%・5校)</span></td><td>111</td></tr>
+      <tr><td>2024年3月卒</td><td>478</td><td>122<span class="rate">(25.5%)</span></td><td>96<span class="rate">(20.1%)</span></td><td>49<span class="rate">(10.3%)</span></td><td>36<span class="rate">(7.5%)</span></td><td>604<span class="rate">(126.4%・5校)</span></td><td>117</td></tr>
+    </table>
+    <div class="src">出典: <a href="https://www.yamate-gakuin.ac.jp/career/almu/" target="_blank">進学実績ページ（6年間の推移を掲載）</a></div>
+  </div>
+  <!-- /YAMATE -->
+
+  <!-- TOIN -->
+  <div class="card">
+    <div class="card-head">
+      <h3 class="school-name">桐蔭学園高校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge shingaku">進学校型</span></div>
+    </div>
+    <div class="sub">公式サイトには2026年（最新）のPDFしか残っておらず、過去年度分は確認できませんでした。卒業生数は非公表。数値は合格者数（延べ、現役+既卒）。</div>
+    <table>
+      <tr><th>年度</th><th>国公立</th><th>早稲田</th><th>慶應</th><th>上智</th><th>GMARCH計(学習院含む6校)</th><th>医学部医学科</th></tr>
+      <tr><td>2026年3月卒</td><td>126</td><td>57</td><td>47</td><td>30</td><td>513</td><td>24</td></tr>
+    </table>
+    <div class="note">参考（別指標）：現役合格率はコース別に公表　プログレス86.6%（うち国公立現役34.2%）／アドバンス85.2%／スタンダード85.9%</div>
+    <div class="src">出典: <a href="https://toin.ac.jp/high/shinro/univ-results/" target="_blank">大学合格実績ページ（国公立・私立・医学部医学科PDF）</a></div>
+  </div>
+  <!-- /TOIN -->
+
+  <!-- HOYU -->
+  <div class="card">
+    <div class="card-head">
+      <h3 class="school-name">朋優学院高校</h3>
+      <div class="badges"><span class="badge private">私立</span><span class="badge shingaku">進学校型</span></div>
+    </div>
+    <div class="sub">卒業生数は非公表。数値は合格者数（延べ）。国公立のみ現役内数を括弧で併記。早慶上理・GMARCHは学校公表の集計値をそのまま使用。</div>
+    <table>
+      <tr><th>年度</th><th>国公立(現役内数)</th><th>早稲田</th><th>慶應</th><th>上智</th><th>早慶上理計</th><th>GMARCH計</th><th>うち法政</th><th>医学部医学科</th></tr>
+      <tr><td>2026年3月卒</td><td>97(91)</td><td>58</td><td>34</td><td>54</td><td>221</td><td>514</td><td>123</td><td>15</td></tr>
+      <tr><td>2025年3月卒</td><td>86(78)</td><td>70</td><td>41</td><td>59</td><td>284</td><td>739</td><td>198</td><td>7</td></tr>
+      <tr><td>2024年3月卒</td><td>109(98)</td><td>62</td><td>26</td><td>48</td><td>175</td><td>625</td><td>170</td><td>6</td></tr>
+    </table>
+    <div class="src">出典: <a href="https://www.ho-yu.ed.jp/career/results2026/" target="_blank">進路実績2026</a>／<a href="https://www.ho-yu.ed.jp/career/results2025/" target="_blank">2025</a>／<a href="https://www.ho-yu.ed.jp/career/results2024/" target="_blank">2024</a></div>
+  </div>
+  <!-- /HOYU -->
+
+  <footer>
+    このページは手動で作成・更新しています（志望校ダッシュボードの自動監視の対象外です）。正式な数値は必ず各校公式サイトでご確認ください。
+  </footer>
+
+</div>
+</body>
+</html>
