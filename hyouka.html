@@ -30,12 +30,9 @@
   .caveat b{color:var(--amber);}
   .caveat ul{margin:6px 0 0;padding-left:20px;}
   .caveat li{margin:3px 0;}
-  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:10px;}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:10px;align-items:center;}
   .legend span.sym{font-weight:700;margin-right:4px;}
-  .sym-good{color:var(--green);}
-  .sym-mid{color:var(--blue);}
-  .sym-caution{color:var(--amber);}
-  .sym-bad{color:var(--red);}
+  .sym{color:var(--ink);font-weight:700;display:inline-block;width:1.3em;text-align:center;}
   .card{
     background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;
     box-shadow:0 1px 2px rgba(0,0,0,0.03); margin-bottom:16px;
@@ -57,12 +54,12 @@
   tr:last-child td{border-bottom:none;}
   .overview-wrap{overflow-x:auto;}
   table.overview{font-size:13px;}
-  table.overview td.sym{font-size:17px;font-weight:700;}
+  table.overview td.sym{font-size:16px;}
   table.overview td.note-cell{text-align:left;font-size:11.5px;color:var(--muted);}
   .rank-num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;background:#111827;color:#fff;font-size:12px;font-weight:700;margin-right:6px;}
   .score-cell{font-weight:700;}
   .detail-table td:first-child{white-space:nowrap;color:var(--muted);font-size:11px;text-transform:uppercase;width:110px;}
-  .detail-table td.sym{font-size:16px;font-weight:700;text-align:left;width:24px;}
+  .detail-table td.sym{font-size:16px;text-align:left;width:24px;}
   .detail-table td.explain{text-align:left;font-size:13px;}
   .note{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.6;}
   .src{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.7;}
@@ -82,15 +79,15 @@
   <div class="caveat">
     <b>このページについて</b>
     <ul>
-      <li>各項目の評価（◎○△❌）は<b>ご家庭の判断</b>によるものです。偏差値・進学先・クラブ活動（サッカー）・通学時間の詳細データは、それぞれ<a href="./index.html" style="color:#78350f;">ダッシュボード</a>・<a href="./shingaku.html" style="color:#78350f;">大学進学実績比較</a>・<a href="./soccer.html" style="color:#78350f;">サッカー部強さ比較</a>・<a href="./tsugaku.html" style="color:#78350f;">通学時間比較</a>の各ページで裏付けを確認できます。学費・生徒数・試験日は今回新たに追加した項目です。</li>
-      <li>一番右の「参考スコア」は◎=4点・○=3点・△=2点・❌=1点として6項目（試験日を除く）を単純合計したものです。<b>各項目の重み付けは家庭や本人によって異なる</b ため、あくまで全体感をつかむ参考値としてご覧ください。</li>
-      <li>クラブ活動の「Kレベル」表記は<a href="./soccer.html" style="color:#78350f;">サッカー部の強さ比較ページ</a>の神奈川県U-18リーグの階層（K1が最上位）に対応します。評価が△・❌の学校は「レベルが合わない（強すぎる／弱すぎる）」という意味で、部としての実力の高低そのものとは別軸です。</li>
+      <li>各項目の評価（◎○△✕）は<b>ご家庭の判断</b>によるものです。偏差値・進学先・クラブ活動（サッカー）・通学時間の詳細データは、それぞれ<a href="./index.html" style="color:#78350f;">ダッシュボード</a>・<a href="./shingaku.html" style="color:#78350f;">大学進学実績比較</a>・<a href="./soccer.html" style="color:#78350f;">サッカー部強さ比較</a>・<a href="./tsugaku.html" style="color:#78350f;">通学時間比較</a>の各ページで裏付けを確認できます。学費・生徒数・試験日は今回新たに追加した項目です。</li>
+      <li>一番右の「参考スコア」は◎=4点・○=3点・△=2点・✕=1点として6項目（試験日を除く）を単純合計したものです。<b>各項目の重み付けは家庭や本人によって異なる</b ため、あくまで全体感をつかむ参考値としてご覧ください。</li>
+      <li>クラブ活動の「Kレベル」表記は<a href="./soccer.html" style="color:#78350f;">サッカー部の強さ比較ページ</a>の神奈川県U-18リーグの階層（K1が最上位）に対応します。評価が△・✕の学校は「レベルが合わない（強すぎる／弱すぎる）」という意味で、部としての実力の高低そのものとは別軸です。</li>
     </ul>
     <div class="legend">
-      <span><span class="sym sym-good">◎</span>とても良い</span>
-      <span><span class="sym sym-mid">○</span>良い</span>
-      <span><span class="sym sym-caution">△</span>やや懸念</span>
-      <span><span class="sym sym-bad">❌</span>懸念大</span>
+      <span><span class="sym">◎</span>とても良い</span>
+      <span><span class="sym">○</span>良い</span>
+      <span><span class="sym">△</span>やや懸念</span>
+      <span><span class="sym">✕</span>懸念大</span>
     </div>
   </div>
 
@@ -102,47 +99,47 @@
     </tr>
     <tr>
       <td><span class="rank-num">1</span></td><td style="text-align:left"><b>横浜翠嵐</b></td>
-      <td class="sym sym-good">◎</td><td class="sym sym-good">◎</td><td class="sym sym-good">◎</td><td class="sym sym-mid">○</td><td class="sym sym-good">◎</td><td class="sym sym-good">◎</td>
+      <td class="sym">◎</td><td class="sym">◎</td><td class="sym">◎</td><td class="sym">○</td><td class="sym">◎</td><td class="sym">◎</td>
       <td style="font-size:12px;">2/16・2/17</td><td class="score-cell">23</td>
     </tr>
     <tr>
       <td><span class="rank-num">2</span></td><td style="text-align:left"><b>東京学芸大附属</b></td>
-      <td class="sym sym-good">◎</td><td class="sym sym-good">◎</td><td class="sym sym-good">◎</td><td class="sym sym-caution">△</td><td class="sym sym-good">◎</td><td class="sym sym-good">◎</td>
+      <td class="sym">◎</td><td class="sym">◎</td><td class="sym">◎</td><td class="sym">△</td><td class="sym">◎</td><td class="sym">◎</td>
       <td style="font-size:12px;">2/13</td><td class="score-cell">22</td>
     </tr>
     <tr>
       <td><span class="rank-num">3</span></td><td style="text-align:left"><b>川和</b></td>
-      <td class="sym sym-mid">○</td><td class="sym sym-mid">○</td><td class="sym sym-caution">△</td><td class="sym sym-mid">○</td><td class="sym sym-good">◎</td><td class="sym sym-good">◎</td>
+      <td class="sym">○</td><td class="sym">○</td><td class="sym">△</td><td class="sym">○</td><td class="sym">◎</td><td class="sym">◎</td>
       <td style="font-size:12px;">2/16・2/17</td><td class="score-cell">19</td>
     </tr>
     <tr>
       <td><span class="rank-num">4</span></td><td style="text-align:left"><b>中央大学附属横浜</b></td>
-      <td class="sym sym-mid">○</td><td class="sym sym-caution">△</td><td class="sym sym-mid">○</td><td class="sym sym-good">◎</td><td class="sym sym-caution">△</td><td class="sym sym-good">◎</td>
+      <td class="sym">○</td><td class="sym">△</td><td class="sym">○</td><td class="sym">◎</td><td class="sym">△</td><td class="sym">◎</td>
       <td style="font-size:12px;">2/10</td><td class="score-cell">18</td>
     </tr>
     <tr>
       <td><span class="rank-num">5</span></td><td style="text-align:left"><b>山手学院</b></td>
-      <td class="sym sym-mid">○</td><td class="sym sym-mid">○</td><td class="sym sym-good">◎</td><td class="sym sym-caution">△</td><td class="sym sym-caution">△</td><td class="sym sym-mid">○</td>
+      <td class="sym">○</td><td class="sym">○</td><td class="sym">◎</td><td class="sym">△</td><td class="sym">△</td><td class="sym">○</td>
       <td style="font-size:12px;">2/12</td><td class="score-cell">17</td>
     </tr>
     <tr>
       <td><span class="rank-num">6</span></td><td style="text-align:left"><b>朋優学院</b></td>
-      <td class="sym sym-mid">○</td><td class="sym sym-mid">○</td><td class="sym sym-caution">△</td><td class="sym sym-caution">△</td><td class="sym sym-caution">△</td><td class="sym sym-good">◎</td>
+      <td class="sym">○</td><td class="sym">○</td><td class="sym">△</td><td class="sym">△</td><td class="sym">△</td><td class="sym">◎</td>
       <td style="font-size:12px;">2/12</td><td class="score-cell">16</td>
     </tr>
     <tr>
       <td><span class="rank-num">7</span></td><td style="text-align:left"><b>法政大学第二</b></td>
-      <td class="sym sym-mid">○</td><td class="sym sym-bad">❌</td><td class="sym sym-bad">❌</td><td class="sym sym-good">◎</td><td class="sym sym-caution">△</td><td class="sym sym-caution">△</td>
+      <td class="sym">○</td><td class="sym">✕</td><td class="sym">✕</td><td class="sym">◎</td><td class="sym">△</td><td class="sym">△</td>
       <td style="font-size:12px;">2/11</td><td class="score-cell">13</td>
     </tr>
     <tr>
       <td><span class="rank-num">8</span></td><td style="text-align:left"><b>桐蔭学園</b></td>
-      <td class="sym sym-mid">○</td><td class="sym sym-mid">○</td><td class="sym sym-bad">❌</td><td class="sym sym-caution">△</td><td class="sym sym-caution">△</td><td class="sym sym-bad">❌</td>
+      <td class="sym">○</td><td class="sym">○</td><td class="sym">✕</td><td class="sym">△</td><td class="sym">△</td><td class="sym">✕</td>
       <td style="font-size:12px;">書類選考のみ</td><td class="score-cell">12</td>
     </tr>
   </table>
   </div>
-  <div class="note">参考スコアは6項目単純合計（◎4/○3/△2/❌1、満点24）。試験日はスコアに含めていません。</div>
+  <div class="note">参考スコアは6項目単純合計（◎4/○3/△2/✕1、満点24）。試験日はスコアに含めていません。</div>
 
   <h2>試験日カレンダー（受験計画用）</h2>
   <div class="card">
@@ -166,12 +163,12 @@
       <div class="badges"><span class="badge public">県立</span><span class="badge score">スコア 23</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym sym-good">◎</td><td class="explain"></td></tr>
-      <tr><td>進学先</td><td class="sym sym-good">◎</td><td class="explain"></td></tr>
-      <tr><td>クラブ活動</td><td class="sym sym-good">◎</td><td class="explain">K5レベル</td></tr>
-      <tr><td>通学時間</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>学費</td><td class="sym sym-good">◎</td><td class="explain"></td></tr>
-      <tr><td>生徒数</td><td class="sym sym-good">◎</td><td class="explain">約360名</td></tr>
+      <tr><td>偏差値</td><td class="sym">◎</td><td class="explain"></td></tr>
+      <tr><td>進学先</td><td class="sym">◎</td><td class="explain"></td></tr>
+      <tr><td>クラブ活動</td><td class="sym">◎</td><td class="explain">K5レベル</td></tr>
+      <tr><td>通学時間</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>学費</td><td class="sym">◎</td><td class="explain"></td></tr>
+      <tr><td>生徒数</td><td class="sym">◎</td><td class="explain">約360名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/16・2/17</td></tr>
     </table>
     <div class="note">全項目でバランスが良く、参考スコアは8校中トップ。</div>
@@ -183,12 +180,12 @@
       <div class="badges"><span class="badge national">国立</span><span class="badge score">スコア 22</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym sym-good">◎</td><td class="explain"></td></tr>
-      <tr><td>進学先</td><td class="sym sym-good">◎</td><td class="explain"></td></tr>
-      <tr><td>クラブ活動</td><td class="sym sym-good">◎</td><td class="explain">K5レベル</td></tr>
-      <tr><td>通学時間</td><td class="sym sym-caution">△</td><td class="explain"></td></tr>
-      <tr><td>学費</td><td class="sym sym-good">◎</td><td class="explain"></td></tr>
-      <tr><td>生徒数</td><td class="sym sym-good">◎</td><td class="explain">約320名</td></tr>
+      <tr><td>偏差値</td><td class="sym">◎</td><td class="explain"></td></tr>
+      <tr><td>進学先</td><td class="sym">◎</td><td class="explain"></td></tr>
+      <tr><td>クラブ活動</td><td class="sym">◎</td><td class="explain">K5レベル</td></tr>
+      <tr><td>通学時間</td><td class="sym">△</td><td class="explain"></td></tr>
+      <tr><td>学費</td><td class="sym">◎</td><td class="explain"></td></tr>
+      <tr><td>生徒数</td><td class="sym">◎</td><td class="explain">約320名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/13</td></tr>
     </table>
     <div class="note">通学時間以外はすべて◎。翠嵐との差はわずか1点。</div>
@@ -200,12 +197,12 @@
       <div class="badges"><span class="badge public">県立</span><span class="badge score">スコア 19</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>進学先</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>クラブ活動</td><td class="sym sym-caution">△</td><td class="explain">K3〜K4は強すぎるため</td></tr>
-      <tr><td>通学時間</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>学費</td><td class="sym sym-good">◎</td><td class="explain"></td></tr>
-      <tr><td>生徒数</td><td class="sym sym-good">◎</td><td class="explain">約360名</td></tr>
+      <tr><td>偏差値</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>進学先</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>クラブ活動</td><td class="sym">△</td><td class="explain">K3〜K4は強すぎるため</td></tr>
+      <tr><td>通学時間</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>学費</td><td class="sym">◎</td><td class="explain"></td></tr>
+      <tr><td>生徒数</td><td class="sym">◎</td><td class="explain">約360名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/16・2/17</td></tr>
     </table>
     <div class="note">クラブ活動評価が△なのは「弱い」ではなく「本気で上を目指すには県上位勢が強すぎる」というレベル感のミスマッチが理由。</div>
@@ -217,12 +214,12 @@
       <div class="badges"><span class="badge private">私立</span><span class="badge score">スコア 18</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>進学先</td><td class="sym sym-caution">△</td><td class="explain">卒業生の1/3前後が中央大学以外へ進学</td></tr>
-      <tr><td>クラブ活動</td><td class="sym sym-mid">○</td><td class="explain">K6レベル</td></tr>
-      <tr><td>通学時間</td><td class="sym sym-good">◎</td><td class="explain"></td></tr>
-      <tr><td>学費</td><td class="sym sym-caution">△</td><td class="explain"></td></tr>
-      <tr><td>生徒数</td><td class="sym sym-good">◎</td><td class="explain">約350名</td></tr>
+      <tr><td>偏差値</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>進学先</td><td class="sym">△</td><td class="explain">卒業生の1/3前後が中央大学以外へ進学</td></tr>
+      <tr><td>クラブ活動</td><td class="sym">○</td><td class="explain">K6レベル</td></tr>
+      <tr><td>通学時間</td><td class="sym">◎</td><td class="explain"></td></tr>
+      <tr><td>学費</td><td class="sym">△</td><td class="explain"></td></tr>
+      <tr><td>生徒数</td><td class="sym">◎</td><td class="explain">約350名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/10</td></tr>
     </table>
     <div class="note">通学は8校中もっとも楽な部類（約32分）。附属校ながら進学先は分散しています。</div>
@@ -234,12 +231,12 @@
       <div class="badges"><span class="badge private">私立</span><span class="badge score">スコア 17</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>進学先</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>クラブ活動</td><td class="sym sym-good">◎</td><td class="explain">K5レベル</td></tr>
-      <tr><td>通学時間</td><td class="sym sym-caution">△</td><td class="explain">約80分・8校中最長</td></tr>
-      <tr><td>学費</td><td class="sym sym-caution">△</td><td class="explain"></td></tr>
-      <tr><td>生徒数</td><td class="sym sym-mid">○</td><td class="explain">約480名</td></tr>
+      <tr><td>偏差値</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>進学先</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>クラブ活動</td><td class="sym">◎</td><td class="explain">K5レベル</td></tr>
+      <tr><td>通学時間</td><td class="sym">△</td><td class="explain">約80分・8校中最長</td></tr>
+      <tr><td>学費</td><td class="sym">△</td><td class="explain"></td></tr>
+      <tr><td>生徒数</td><td class="sym">○</td><td class="explain">約480名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/12（朋優学院と同日）</td></tr>
     </table>
     <div class="note">クラブ活動評価は8校中トップクラス。通学時間の長さとのトレードオフです。</div>
@@ -251,12 +248,12 @@
       <div class="badges"><span class="badge private">私立</span><span class="badge score">スコア 16</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>進学先</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>クラブ活動</td><td class="sym sym-caution">△</td><td class="explain">K6レベル・やや弱い</td></tr>
-      <tr><td>通学時間</td><td class="sym sym-caution">△</td><td class="explain">約56分</td></tr>
-      <tr><td>学費</td><td class="sym sym-caution">△</td><td class="explain"></td></tr>
-      <tr><td>生徒数</td><td class="sym sym-good">◎</td><td class="explain">約380名</td></tr>
+      <tr><td>偏差値</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>進学先</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>クラブ活動</td><td class="sym">△</td><td class="explain">K6レベル・やや弱い</td></tr>
+      <tr><td>通学時間</td><td class="sym">△</td><td class="explain">約56分</td></tr>
+      <tr><td>学費</td><td class="sym">△</td><td class="explain"></td></tr>
+      <tr><td>生徒数</td><td class="sym">◎</td><td class="explain">約380名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/12（山手学院と同日）</td></tr>
     </table>
     <div class="note">全体的にバランス型。突出した強みはないが弱点も限定的。</div>
@@ -268,12 +265,12 @@
       <div class="badges"><span class="badge private">私立</span><span class="badge score">スコア 13</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>進学先</td><td class="sym sym-bad">❌</td><td class="explain">ほぼ法政大学への内部進学になるため</td></tr>
-      <tr><td>クラブ活動</td><td class="sym sym-bad">❌</td><td class="explain">K1級の強豪で、実質入部が難しい</td></tr>
-      <tr><td>通学時間</td><td class="sym sym-good">◎</td><td class="explain">約38分</td></tr>
-      <tr><td>学費</td><td class="sym sym-caution">△</td><td class="explain"></td></tr>
-      <tr><td>生徒数</td><td class="sym sym-caution">△</td><td class="explain">約650名</td></tr>
+      <tr><td>偏差値</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>進学先</td><td class="sym">✕</td><td class="explain">ほぼ法政大学への内部進学になるため</td></tr>
+      <tr><td>クラブ活動</td><td class="sym">✕</td><td class="explain">K1級の強豪で、実質入部が難しい</td></tr>
+      <tr><td>通学時間</td><td class="sym">◎</td><td class="explain">約38分</td></tr>
+      <tr><td>学費</td><td class="sym">△</td><td class="explain"></td></tr>
+      <tr><td>生徒数</td><td class="sym">△</td><td class="explain">約650名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/11</td></tr>
     </table>
     <div class="note">通学は良好ですが、「進学先の選択肢」「サッカー部への入りやすさ」という今回重視した2軸で大きく評価を下げています。</div>
@@ -285,19 +282,19 @@
       <div class="badges"><span class="badge private">私立</span><span class="badge score">スコア 12</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>進学先</td><td class="sym sym-mid">○</td><td class="explain"></td></tr>
-      <tr><td>クラブ活動</td><td class="sym sym-bad">❌</td><td class="explain">プリンスリーグ関東級の強豪で、実質入部が難しい</td></tr>
-      <tr><td>通学時間</td><td class="sym sym-caution">△</td><td class="explain">約50分</td></tr>
-      <tr><td>学費</td><td class="sym sym-caution">△</td><td class="explain"></td></tr>
-      <tr><td>生徒数</td><td class="sym sym-bad">❌</td><td class="explain">約1000名・8校中最大</td></tr>
+      <tr><td>偏差値</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>進学先</td><td class="sym">○</td><td class="explain"></td></tr>
+      <tr><td>クラブ活動</td><td class="sym">✕</td><td class="explain">プリンスリーグ関東級の強豪で、実質入部が難しい</td></tr>
+      <tr><td>通学時間</td><td class="sym">△</td><td class="explain">約50分</td></tr>
+      <tr><td>学費</td><td class="sym">△</td><td class="explain"></td></tr>
+      <tr><td>生徒数</td><td class="sym">✕</td><td class="explain">約1000名・8校中最大</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">書類選考のみ</td></tr>
     </table>
     <div class="note">サッカー部の実力自体は8校随一ですが、それが「強すぎて入部しにくい」という評価につながっている点に注意。学年規模の大きさも他校と傾向が異なります。</div>
   </div>
 
   <footer>
-    評価（◎○△❌）はご家庭の判断によるものです。偏差値・進学実績・サッカー部・通学時間の詳細データはダッシュボードおよび各比較ページをご覧ください。<br>
+    評価（◎○△✕）はご家庭の判断によるものです。偏差値・進学実績・サッカー部・通学時間の詳細データはダッシュボードおよび各比較ページをご覧ください。<br>
     このページは手動で作成・更新しています（自動監視の対象外）。
   </footer>
 
