@@ -33,6 +33,7 @@
   .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:10px;align-items:center;}
   .legend span.sym{font-weight:700;margin-right:4px;display:inline-flex;align-items:center;vertical-align:middle;}
   td.sym{text-align:center;}
+  .mini{display:block;font-size:10px;color:var(--muted);margin-top:2px;white-space:nowrap;}
   .icon{display:inline-block;width:16px;height:16px;background-repeat:no-repeat;background-position:center;background-size:contain;vertical-align:middle;}
   .icon-great{background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Ccircle%20cx='12'%20cy='12'%20r='9'%20fill='none'%20stroke='%231f2937'%20stroke-width='2'/%3E%3Ccircle%20cx='12'%20cy='12'%20r='3.6'%20fill='none'%20stroke='%231f2937'%20stroke-width='2'/%3E%3C/svg%3E");}
   .icon-good{background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Ccircle%20cx='12'%20cy='12'%20r='9'%20fill='none'%20stroke='%231f2937'%20stroke-width='2'/%3E%3C/svg%3E");}
@@ -86,6 +87,7 @@
       <li>各項目の評価（◎○△✕）は<b>ご家庭の判断</b>によるものです。偏差値・進学先・クラブ活動（サッカー）・通学時間の詳細データは、それぞれ<a href="./index.html" style="color:#78350f;">ダッシュボード</a>・<a href="./shingaku.html" style="color:#78350f;">大学進学実績比較</a>・<a href="./soccer.html" style="color:#78350f;">サッカー部強さ比較</a>・<a href="./tsugaku.html" style="color:#78350f;">通学時間比較</a>の各ページで裏付けを確認できます。学費・生徒数・試験日は今回新たに追加した項目です。</li>
       <li>一番右の「参考スコア」は◎=4点・○=3点・△=2点・✕=1点として6項目（試験日を除く）を単純合計したものです。<b>各項目の重み付けは家庭や本人によって異なる</b ため、あくまで全体感をつかむ参考値としてご覧ください。</li>
       <li>クラブ活動の「Kレベル」表記は<a href="./soccer.html" style="color:#78350f;">サッカー部の強さ比較ページ</a>の神奈川県U-18リーグの階層（K1が最上位）に対応します。評価が△・✕の学校は「レベルが合わない（強すぎる／弱すぎる）」という意味で、部としての実力の高低そのものとは別軸です。</li>
+      <li><b>学費は「初年度納付金」の公表額（就学支援金等の補助を差し引く前の金額）</b>です。私立は入学金・施設費等を含む初年度と、2年目以降（入学金なし）で金額が変わるため両方を記載しています。公立2校・国立1校は世帯収入に応じて授業料が実質無償になる高等学校等就学支援金制度の対象です（私立も一定の年収以下で対象）。正確な金額は各校の最新の募集要項でご確認ください。</li>
     </ul>
     <div class="legend">
       <span><span class="sym"><span class="icon icon-great" title="◎"></span></span>とても良い</span>
@@ -107,42 +109,42 @@
     </tr>
     <tr>
       <td><span class="rank-num">1</span></td><td style="text-align:left"><b>横浜翠嵐</b></td>
-      <td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td>
+      <td class="sym"><span class="icon icon-great" title="◎"></span><span class="mini">74</span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-good" title="○"></span><span class="mini">43分</span></td><td class="sym"><span class="icon icon-great" title="◎"></span><span class="mini">12万</span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td>
       <td style="font-size:12px;">2/16・2/17</td><td class="score-cell">23</td>
     </tr>
     <tr>
       <td><span class="rank-num">2</span></td><td style="text-align:left"><b>東京学芸大附属</b></td>
-      <td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td>
+      <td class="sym"><span class="icon icon-great" title="◎"></span><span class="mini">75</span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span><span class="mini">63分</span></td><td class="sym"><span class="icon icon-great" title="◎"></span><span class="mini">72万</span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td>
       <td style="font-size:12px;">2/13</td><td class="score-cell">22</td>
     </tr>
     <tr>
       <td><span class="rank-num">3</span></td><td style="text-align:left"><b>川和</b></td>
-      <td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td>
+      <td class="sym"><span class="icon icon-good" title="○"></span><span class="mini">69</span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-good" title="○"></span><span class="mini">45分</span></td><td class="sym"><span class="icon icon-great" title="◎"></span><span class="mini">12万</span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td>
       <td style="font-size:12px;">2/16・2/17</td><td class="score-cell">19</td>
     </tr>
     <tr>
       <td><span class="rank-num">4</span></td><td style="text-align:left"><b>中央大学附属横浜</b></td>
-      <td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td>
+      <td class="sym"><span class="icon icon-good" title="○"></span><span class="mini">66</span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span><span class="mini">32分</span></td><td class="sym"><span class="icon icon-caution" title="△"></span><span class="mini">153万</span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td>
       <td style="font-size:12px;">2/10</td><td class="score-cell">18</td>
     </tr>
     <tr>
       <td><span class="rank-num">5</span></td><td style="text-align:left"><b>山手学院</b></td>
-      <td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-good" title="○"></span></td>
+      <td class="sym"><span class="icon icon-good" title="○"></span><span class="mini">70</span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span><span class="mini">80分</span></td><td class="sym"><span class="icon icon-caution" title="△"></span><span class="mini">134万</span></td><td class="sym"><span class="icon icon-good" title="○"></span></td>
       <td style="font-size:12px;">2/12</td><td class="score-cell">17</td>
     </tr>
     <tr>
       <td><span class="rank-num">6</span></td><td style="text-align:left"><b>朋優学院</b></td>
-      <td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td>
+      <td class="sym"><span class="icon icon-good" title="○"></span><span class="mini">67</span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span><span class="mini">56分</span></td><td class="sym"><span class="icon icon-caution" title="△"></span><span class="mini">109万</span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td>
       <td style="font-size:12px;">2/12</td><td class="score-cell">16</td>
     </tr>
     <tr>
       <td><span class="rank-num">7</span></td><td style="text-align:left"><b>法政大学第二</b></td>
-      <td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-bad" title="✕"></span></td><td class="sym"><span class="icon icon-bad" title="✕"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td>
+      <td class="sym"><span class="icon icon-good" title="○"></span><span class="mini">69</span></td><td class="sym"><span class="icon icon-bad" title="✕"></span></td><td class="sym"><span class="icon icon-bad" title="✕"></span></td><td class="sym"><span class="icon icon-great" title="◎"></span><span class="mini">38分</span></td><td class="sym"><span class="icon icon-caution" title="△"></span><span class="mini">129万</span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td>
       <td style="font-size:12px;">2/11</td><td class="score-cell">13</td>
     </tr>
     <tr>
       <td><span class="rank-num">8</span></td><td style="text-align:left"><b>桐蔭学園</b></td>
-      <td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-bad" title="✕"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="sym"><span class="icon icon-bad" title="✕"></span></td>
+      <td class="sym"><span class="icon icon-good" title="○"></span><span class="mini">68</span></td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="sym"><span class="icon icon-bad" title="✕"></span></td><td class="sym"><span class="icon icon-caution" title="△"></span><span class="mini">50分</span></td><td class="sym"><span class="icon icon-caution" title="△"></span><span class="mini">118万</span></td><td class="sym"><span class="icon icon-bad" title="✕"></span></td>
       <td style="font-size:12px;">書類選考のみ</td><td class="score-cell">12</td>
     </tr>
   </table>
@@ -171,11 +173,11 @@
       <div class="badges"><span class="badge public">県立</span><span class="badge score">スコア 23</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain"></td></tr>
+      <tr><td>偏差値</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">74</td></tr>
       <tr><td>進学先</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain"></td></tr>
       <tr><td>クラブ活動</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">K5レベル</td></tr>
-      <tr><td>通学時間</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
-      <tr><td>学費</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain"></td></tr>
+      <tr><td>通学時間</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain">約43分</td></tr>
+      <tr><td>学費</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">公立・年額約12万円（県定額）</td></tr>
       <tr><td>生徒数</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">約360名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/16・2/17</td></tr>
     </table>
@@ -188,11 +190,11 @@
       <div class="badges"><span class="badge national">国立</span><span class="badge score">スコア 22</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain"></td></tr>
+      <tr><td>偏差値</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">75</td></tr>
       <tr><td>進学先</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain"></td></tr>
       <tr><td>クラブ活動</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">K5レベル</td></tr>
-      <tr><td>通学時間</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain"></td></tr>
-      <tr><td>学費</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain"></td></tr>
+      <tr><td>通学時間</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">約63分</td></tr>
+      <tr><td>学費</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">国立・初年度約72万円（2年目以降約58万円）</td></tr>
       <tr><td>生徒数</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">約320名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/13</td></tr>
     </table>
@@ -205,11 +207,11 @@
       <div class="badges"><span class="badge public">県立</span><span class="badge score">スコア 19</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
+      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain">69</td></tr>
       <tr><td>進学先</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
       <tr><td>クラブ活動</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">K3〜K4は強すぎるため</td></tr>
-      <tr><td>通学時間</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
-      <tr><td>学費</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain"></td></tr>
+      <tr><td>通学時間</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain">約45分</td></tr>
+      <tr><td>学費</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">公立・年額約12万円（県定額）</td></tr>
       <tr><td>生徒数</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">約360名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/16・2/17</td></tr>
     </table>
@@ -222,11 +224,11 @@
       <div class="badges"><span class="badge private">私立</span><span class="badge score">スコア 18</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
+      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain">66</td></tr>
       <tr><td>進学先</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">卒業生の1/3前後が中央大学以外へ進学</td></tr>
       <tr><td>クラブ活動</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain">K6レベル</td></tr>
-      <tr><td>通学時間</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain"></td></tr>
-      <tr><td>学費</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain"></td></tr>
+      <tr><td>通学時間</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">約32分</td></tr>
+      <tr><td>学費</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">私立・初年度約153万円（2年目以降約111万円）</td></tr>
       <tr><td>生徒数</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">約350名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/10</td></tr>
     </table>
@@ -239,11 +241,11 @@
       <div class="badges"><span class="badge private">私立</span><span class="badge score">スコア 17</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
+      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain">70</td></tr>
       <tr><td>進学先</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
       <tr><td>クラブ活動</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">K5レベル</td></tr>
       <tr><td>通学時間</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">約80分・8校中最長</td></tr>
-      <tr><td>学費</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain"></td></tr>
+      <tr><td>学費</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">私立・初年度約134万円（2年目以降約83万円）</td></tr>
       <tr><td>生徒数</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain">約480名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/12（朋優学院と同日）</td></tr>
     </table>
@@ -256,11 +258,11 @@
       <div class="badges"><span class="badge private">私立</span><span class="badge score">スコア 16</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
+      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain">67</td></tr>
       <tr><td>進学先</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
       <tr><td>クラブ活動</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">K6レベル・やや弱い</td></tr>
       <tr><td>通学時間</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">約56分</td></tr>
-      <tr><td>学費</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain"></td></tr>
+      <tr><td>学費</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">私立・初年度約109万円（2年目以降約81万円）</td></tr>
       <tr><td>生徒数</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">約380名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/12（山手学院と同日）</td></tr>
     </table>
@@ -273,11 +275,11 @@
       <div class="badges"><span class="badge private">私立</span><span class="badge score">スコア 13</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
+      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain">69</td></tr>
       <tr><td>進学先</td><td class="sym"><span class="icon icon-bad" title="✕"></span></td><td class="explain">ほぼ法政大学への内部進学になるため</td></tr>
       <tr><td>クラブ活動</td><td class="sym"><span class="icon icon-bad" title="✕"></span></td><td class="explain">K1級の強豪で、実質入部が難しい</td></tr>
       <tr><td>通学時間</td><td class="sym"><span class="icon icon-great" title="◎"></span></td><td class="explain">約38分</td></tr>
-      <tr><td>学費</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain"></td></tr>
+      <tr><td>学費</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">私立・初年度約129万円（2年目以降約94万円）</td></tr>
       <tr><td>生徒数</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">約650名</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">2/11</td></tr>
     </table>
@@ -290,11 +292,11 @@
       <div class="badges"><span class="badge private">私立</span><span class="badge score">スコア 12</span></div>
     </div>
     <table class="detail-table">
-      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
+      <tr><td>偏差値</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain">68</td></tr>
       <tr><td>進学先</td><td class="sym"><span class="icon icon-good" title="○"></span></td><td class="explain"></td></tr>
       <tr><td>クラブ活動</td><td class="sym"><span class="icon icon-bad" title="✕"></span></td><td class="explain">プリンスリーグ関東級の強豪で、実質入部が難しい</td></tr>
       <tr><td>通学時間</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">約50分</td></tr>
-      <tr><td>学費</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain"></td></tr>
+      <tr><td>学費</td><td class="sym"><span class="icon icon-caution" title="△"></span></td><td class="explain">私立・初年度約118万円（2年目以降約78万円）</td></tr>
       <tr><td>生徒数</td><td class="sym"><span class="icon icon-bad" title="✕"></span></td><td class="explain">約1000名・8校中最大</td></tr>
       <tr><td>試験日</td><td></td><td class="explain">書類選考のみ</td></tr>
     </table>
